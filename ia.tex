@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{siunitx}
 \usepackage[version=4]{mhchem}
@@ -6,8 +6,11 @@
 \usepackage{ragged2e}
 \usepackage[font=small, skip=3pt]{caption}
 \usepackage{float}
+\usepackage{amsmath}
 
 \DeclareSIUnit{\mpl}{\mol\per\litre}
+\DeclareSIUnit{\gpl}{\gram\per\mol}
+\DeclareSIUnit{\ml}{\milli\litre}
 
 \sisetup{space-before-unit = true, free-standing-units = true}
 
@@ -22,10 +25,23 @@ Investigating the relationship between the time tap water is boiled and the amou
 	\item Burette
 	\item 0.1\mpl Silver Nitrate Solution
 	\item 0.25\mpl Potassium Chromate Indicator Solution
-	\item 250\millilitre Erlenmyler Flask
+	\item 250\ml Erlenmyler Flask
 \end{itemize}
 
-\begin{}
-\end{}
+\section*{Procedure}
+
+% TODO: add reference
+Because the concentration of Chloride ions in tap water is very trace (maximum of 4\mg\per\litre), I need to dilute the Silver Nitrate Solution.
+
+To calculate how much I should dilute the \ce{Ag(NO)3} solution by, I calculated the theoretical volume of a 0.1\mpl \ce{Ag(NO)3} solution that would be needed to titrate 100\ml of tap water:
+
+\begin{align*}
+100\ml \ce{H2O} * \frac{4\mg}{L}
+MM_\ce{Cl} = 35.45\gpl
+
+n_{Cl} = \frac{0.4mg}{35.45}
+\end{align*}
+
+
 
 \end{document}
