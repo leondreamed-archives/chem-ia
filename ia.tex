@@ -8,18 +8,44 @@
 \usepackage{float}
 \usepackage{amsmath}
 
-
 \DeclareSIUnit{\mpl}{\mol\per\litre}
-\DeclareSIUnit{\gpl}{\gram\per\mol}
+\DeclareSIUnit{\mmol}{\milli\mol}
+\DeclareSIUnit{\gpm}{\gram\per\mol}
 \DeclareSIUnit{\ml}{\milli\litre}
 
-\sisetup{space-before-unit = true, free-standing-units = true}
+\sisetup{
+	space-before-unit = true,
+	free-standing-units = true,
+	use-xspace = true
+}
+
+% TODO: figure out what "brand" of water deionizer the school uses
 
 \begin{document}
 
-
 \section*{Purpose}
-Investigating the relationship between the time tap water is boiled and the amount of chlorine concentration remaining.
+Investigating the relationship between boiling tap water and the amount of chlorine concentration remaining.
+
+\section*{Introduction}
+Chlorine is a common disinfectant used by water treatment facilities to kill pathogens and viruses in water. <?# TODO: talk a bit more about how ?> However, while the concentration of chlorine present in our tap water isn't enough to make it harmful, it does create an unpleasant odour in the water.
+
+
+
+
+
+% TODO: write about interest in water filters
+
+\section*{Hypothesis}
+
+\section*{Variables}
+
+\section*{Apparatus}
+
+\section*{Risk assessment}
+
+% Calculate amount of "chlorine gas" released lol
+
+
 
 \section*{Materials}
 
@@ -32,9 +58,9 @@ I remember using 0.01M of AgNO3 as well
 
 \begin{itemize}
 	\item Burette
-	\item 0.1\mpl~Silver Nitrate Solution
-	\item 0.25\mpl~Potassium Chromate Indicator Solution
-	\item 250\ml~Erlenmyler Flask
+	\item 0.1\mpl Silver Nitrate Solution
+	\item 0.25\mpl Potassium Chromate Indicator Solution
+	\item 250\ml Erlenmeyer Flask
 	\item Hot Plate
 \end{itemize}
 
@@ -44,7 +70,7 @@ I remember using 0.01M of AgNO3 as well
 	\item A silver nitrate solution (\ce{AgNO3(aq)}) was created by measuring out 0.0817\g of solid \ce{AgNO3} and diluting it with 50\ml of deionized water.
 	\item A dilute solution of 0.01\mpl \ce{K2CrO4} was created by measuring out 2\ml of the 0.1\mpl stock solution and diluting it with 10\ml of deionized water.
 	\item The \ce{AgNO3} solution was poured into a burette.
-	\item 10\ml of tap water was transported into an 100\ml Erlenmyler flask using a 10\ml pipette.
+	\item 10\ml of tap water was transported into a 100\ml Erlenmeyer flask using a 10\ml pipette.
 	\item Approximately 1\ml of the 0.01\mpl \ce{K2CrO4} solution was added to the 10\ml of tap water using a dropper.
 	\item The initial volume of \ce{AgNO3} solution in the burette was noted down. The tap water was titrated with the \ce{AgNO3} solution until the solution turned reddish-brown (see Figure x). The final amount of solution in the burette was noted down.
 	\item Steps 4 to 6 were repeated for 2-3 more trials.
@@ -55,6 +81,12 @@ I remember using 0.01M of AgNO3 as well
 
 % \begin{noindent}
 <?
+const silverNitrateSol = {
+	mass: 0.0817,
+	volume: 0.05,
+	concentration: undefined,
+};
+
 /*
 [0]: # of minutes boiled (or 'deionized' if the water was deionized)
 [1]: mL of AgNO3 needed
@@ -62,6 +94,9 @@ I remember using 0.01M of AgNO3 as well
 */
 
 const rawData = [
+	['deionized', 11.75 - 11.45, 10],
+	['deionized', 31.15 - 30.8, 10],
+	['deionized', 31.6 - 31.15, 10],
 	[0, 11.45 - 10.15, 10],
 	[0, 17.45 - 16.2, 10],
 	[0, 18.7 - 17.45, 10],
@@ -71,17 +106,13 @@ const rawData = [
 	[6, 20.15 - 18.7, 10],
 	[6, 30.8 - 29.4, 10],
 	[6, 7 - 5.6, 10],
-	[9, 8.8 - 7, 10],
 	[9, 16.2 - 14.3, 10],
 	[9, 10.15 - 8.65, 10],
 	[20, 26.4 - 20.15, 10],
 	[20, 29.4 - 26.4, 5],
-	['deionized', 11.75 - 11.45, 10],
-	['deionized', 31.15 - 30.8, 10],
-	['deionized', 31.6 - 31.15, 10],
 ];
 
-const headers = ['minutesBoiled', 'titrantAmount', 'waterAmount'];
+const headers = ['minutesBoiled', 'titrantAmount', 'amountOfWater'];
 
 const data = rawData.map(row => Object.fromEntries(R.zip(headers, row)));
 ?>
@@ -97,42 +128,170 @@ const data = rawData.map(row => Object.fromEntries(R.zip(headers, row)));
 			>{\RaggedRight}X|
 		}
 		\hline
-		\textbf{Trial Number}         &
-		\textbf{Time Boiled /\minute} &
-		\textbf{Titrant Amount /\ml}  &
-		\textbf{Amount of Water /\ml}
+		\textbf{Trial Number}                &
+		\textbf{Time Boiled} /\si{\minute}   &
+		\textbf{Titrant Amount} /$\pm$0.1\ml &
+		\textbf{Amount of Water} /$\pm$0.05\ml
 		\\\hline
 		% \begin{noindent}
 		<? for (const [rowIndex, row] of data.entries()) { ?>
 			Trial <?= rowIndex + 1 ?>
 			& <?= row.minutesBoiled ?>
-			& <?= sigfig(row.titrantAmount, 3) ?>
-			& <?= row.waterAmount ?>
+			& <?= sf(row.titrantAmount, 3) ?>
+			& <?= row.amountOfWater ?>
 			\\\hline
 		<? } ?>
 		% \end{noindent}
 	\end{tabularx}
 \end{table}
 
-\section*{Analysis}
+\section*{Calculations}
 
-To determine the amount of chlorine ions in the water, the amount of water and the amount of titrant is used.
+To determine the amount of chloride ions in the water, the amount of water and the amount of titrant is used.
 
-The equation of the reaction can be represented as follows:
+The mass of \ce{AgNO3_{(s)}} used to create the silver nitrate solution was <?= silverNitrateSol.mass ?>\g. The analytical scale used to weigh this amount had an uncertainty of $\pm$0.0001\g. Using this information, the number of moles of silver nitrate in the solution can be determined:
+%
+\begin{align*}
+	n_{\ce{AgNO3}} & = \frac{m_{\ce{AgNO3}}}{M_{\ce{AgNO3}}}
+	\\
+	n_{\ce{AgNO3}} & = \frac{(<?= silverNitrateSol.mass ?> \pm 0.0001)\g}{169.87\gpm}
+	\\
+	<? silverNitrateSol.moles = silverNitrateSol.mass / 169.87 -?>
+	n_{\ce{AgNO3}} & = <?= sf(silverNitrateSol.moles, 3) ?>\mol \pm <?= sf(0.0001 / silverNitrateSol.mass * 100, 1) ?>\%
+\end{align*}
+
+The silver nitrate was diluted with 50\ml of deionized water using a graduated cylinder with an uncertainty of 0.5\ml or 1\%. Using the number of moles of \ce{AgNO3} in the solution, the concentration of the solution can be determined:
+%
+\begin{align*}
+	c & = \frac{n}{V}
+	\\
+	c & = \frac{<?= sf(silverNitrateSol.moles, 3) ?>\mol \pm 0.1\%}{<?= silverNitrateSol.volume ?>\litre \pm 1\%}
+	\\
+	<? silverNitrateSol.concentration = silverNitrateSol.moles / silverNitrateSol.volume -?>
+	c & = <?= sf(silverNitrateSol.concentration, 3) ?>\mpl \pm 1.1\%
+\end{align*}
+
+The concentration of the \ce{AgNO3} solution can then be used to determine the moles of \ce{AgNO3} for a given volume of the silver nitrate solution. For example, using the data in Trial 1, the volume of the silver nitrate solution needed to titrate the water was 1.30\ml $\pm$ 0.1\ml, or 1.30\ml $\pm$ 7.7\%, giving the following number of moles of \ce{AgNO3}:
+%
+\begin{align*}
+	n & = V \times c
+	\\
+	n & = (1.30\ml \pm 7.7\%) \times (<?= sf(silverNitrateSol.concentration, 3) ?>\mpl \pm 1.1\%)
+	\\
+	<? const trial1Calculations = { molesOfSilverNitrate: silverNitrateSol.concentration * 1.30 } -?>
+	n & = <?= sf(trial1Calculations.molesOfSilverNitrate, 3) ?>\mmol \pm 8.8\%
+\end{align*}
+
+The number of moles of \ce{AgNO3} can then be used to determine the number of moles of chloride ions in the water. The mole ratio between \ce{Ag^-} and \ce{Cl^-} can be determined from the reaction taking place between the silver nitrate and the chloride ions:
 
 \centerline{\ce{AgNO3_{(aq)} + Cl^{-}_{(aq)} -> AgCl_{(s)} + NO3^{-}_{(aq)}}}
 
-\section*{Calculations}
-
-% TODO: add reference
-Because the concentration of Chloride ions in tap water is very trace (maximum of \SI{4}{\mg\per\litre}), I need to dilute the Silver Nitrate Solution.
-
-To calculate how much I should dilute the \ce{Ag(NO)3} solution by, I calculated the theoretical volume of a 0.1\mpl \ce{Ag(NO)3} solution that would be needed to titrate 100\ml of tap water:
-
+From the above balanced chemical equation, it can be determined that the mole ratio between \ce{Ag^-} and \ce{Cl^-} is 1. Therefore, the number of moles of \ce{AgNO3} is equal to the number of moles of \ce{Cl^-}:
+%
 \begin{align*}
-	100\ml~\ce{H2O} \times \frac{4\mg}{L} MM_{\ce{Cl}} & = 35.45\gpl
+	n_{\ce{Cl^-}} & = n_{\ce{AgNO3}}
 	\\
-	n_{Cl}                                             & = \frac{0.4\mg}{35.45}
+	<? trial1Calculations.molesOfChlorine = trial1Calculations.molesOfSilverNitrate -?>
+	n_{\ce{Cl^-}} & = <?= sf(trial1Calculations.molesOfChlorine, 3) ?>\mmol \pm 8.8\%
 \end{align*}
+
+From here, the concentration of chloride ions in the water can be determined knowing that the amount of water used was 10\ml $\pm$ 0.05\ml, or 10\ml $\pm$ 0.5\%:
+%
+\begin{align*}
+	c & = \frac{<?= sf(trial1Calculations.molesOfChlorine, 3) ?>\mmol \pm 8.8\%}{10\mL \pm 0.5\%}
+	\\
+	c & = <?= sf(trial1Calculations.molesOfChlorine / 10, 3) ?>\mpl \pm 9\%
+\end{align*}
+
+The above calculations were performed for each of the values in the 16 trials, producing the following values:
+
+% \begin{noindent}
+<?
+function calculateMolesOfChlorine(rowIndex: number) {
+	const row = data[rowIndex];
+	return row.titrantAmount * silverNitrateSol.concentration / row.amountOfWater;
+}
+
+function calculateMolesOfChlorineUncertaintyPercentage(rowIndex: number) {
+	const row = data[rowIndex];
+	const silverNitrateUncertaintyPercentage = 1.1;
+	const titrantUncertaintyPercentage = (0.1 / row.titrantAmount) * 100;
+	const amountOfWaterUncertaintyPercentage = 0.5;
+	const totalUncertaintyPercentage =
+		silverNitrateUncertaintyPercentage +
+		titrantUncertaintyPercentage +
+		amountOfWaterUncertaintyPercentage;
+	return totalUncertaintyPercentage;
+}
+
+function formatFinalMolesOfChlorine(rowIndex: number) {
+	const moles = calculateMolesOfChlorine(rowIndex);
+	const uncertaintyPercentage = calculateMolesOfChlorineUncertaintyPercentage(rowIndex);
+	const uncertaintyString = sf(moles * (uncertaintyPercentage / 100), 1);
+	const decimalPlaces = uncertaintyString.length - uncertaintyString.indexOf('.') - 1;
+	return `${moles.toFixed(decimalPlaces)} $\\pm$ ${uncertaintyString}`;
+}
+?>
+% \end{noindent}
+
+\begin{table}[H]
+	\caption{TODO}
+	\def\arraystretch{1.5}
+	\begin{tabularx}{\linewidth}{|X|X|}
+		\hline
+		Time Boiled /\si{\minute}
+		 & Moles of \ce{Cl^-} /\si{\mmol}
+		\\\hline
+		% \begin{noindent}
+		<? for (const [rowIndex, row] of data.entries()) { ?>
+			<?= row.minutesBoiled ?>
+			& <?= formatFinalMolesOfChlorine(rowIndex) ?>
+			\\\hline
+		<? } ?>
+		% \end{noindent}
+	\end{tabularx}
+\end{table}
+
+Plotting these values on a graph yields the following result:
+
+\begin{figure}[H]
+	\includegraphics{}
+\end{figure}
+
+
+\section*{Analysis}
+
+% TODO: cite https://www.toronto.ca/311/knowledgebase/kb/docs/articles/toronto-water/water-treatment-and-supply/water-treatment-plants/f.j.-horgan-treatment-plant/reasons-that-the-city-uses-chlorine-to-treat-drinking-water.html
+To verify the accuracy of this amount, the number of moles of chlorine can be compared to the recommended amount of chlorine concentration in drinking water: between 1\mg/\litre and 3\mg/\litre:
+%
+\begin{align*}
+	m_{\ce{Cl^-}} & = n_{\ce{Cl^-}} \times M_{\ce{Cl^-}}
+	\\
+	M_{\ce{Cl^-}} & = 35.45\gpm
+	\\
+	m_{\ce{Cl^-}} & = <?= sf(trial1Calculations.molesOfChlorine, 3) ?>\mmol \times 35.45\gpm
+	\\
+	<? trial1Calculations.massOfChlorine = trial1Calculations.molesOfSilverNitrate * 35.45 -?>
+	m_{\ce{Cl^-}} & = <?= sf(trial1Calculations.massOfChlorine, 3) ?>\mg
+\end{align*}
+
+Converting this amount to \si{\mg\per\litre} gives us the following amount:
+%
+\begin{align*}
+	c = <?= sf(trial1Calculations.massOfChlorine, 3) ?>\mg/10\ml
+	\\
+	c = <?= sf(trial1Calculations.massOfChlorine * 100, 3) ?>\mg/\litre
+\end{align*}
+
+This result is off by an order of magnitude. A possible explanation for this is that the \ce{AgNO3} solution and \ce{K2CrO4} solutions were too dilute, so the initial colour change when all the \ce{AgNO3} ions had been formed was too faint to notice.
+
+<?#
+Looks like Toronto uses chloramine to disinfect water???
+https://www.aquatell.ca/blogs/aquatell/chloramine-use-in-canadian-cities
+?>
+
+<?#
+https://aquanswers.com/does-boiling-water-remove-chlorine-chloramine/
+?>
 
 \end{document}
