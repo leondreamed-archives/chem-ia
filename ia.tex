@@ -8,6 +8,7 @@
 \usepackage{float}
 \usepackage{amsmath}
 
+
 \DeclareSIUnit{\mpl}{\mol\per\litre}
 \DeclareSIUnit{\gpl}{\gram\per\mol}
 \DeclareSIUnit{\ml}{\milli\litre}
@@ -15,6 +16,42 @@
 \sisetup{space-before-unit = true, free-standing-units = true}
 
 \begin{document}
+
+
+\section*{Purpose}
+Investigating the relationship between the time tap water is boiled and the amount of chlorine concentration remaining.
+
+\section*{Materials}
+
+<?#
+I ended up using 2 mL total of 1 mol/L K2CrO4
+This produces 0.01M
+
+I remember using 0.01M of AgNO3 as well
+?>
+
+\begin{itemize}
+	\item Burette
+	\item 0.1\mpl~Silver Nitrate Solution
+	\item 0.25\mpl~Potassium Chromate Indicator Solution
+	\item 250\ml~Erlenmyler Flask
+	\item Hot Plate
+\end{itemize}
+
+\section*{Procedure}
+
+\begin{enumerate}
+	\item A silver nitrate solution (\ce{AgNO3(aq)}) was created by measuring out 0.0817\g of solid \ce{AgNO3} and diluting it with 50\ml of deionized water.
+	\item A dilute solution of 0.01\mpl \ce{K2CrO4} was created by measuring out 2\ml of the 0.1\mpl stock solution and diluting it with 10\ml of deionized water.
+	\item The \ce{AgNO3} solution was poured into a burette.
+	\item 10\ml of tap water was transported into an 100\ml Erlenmyler flask using a 10\ml pipette.
+	\item Approximately 1\ml of the 0.01\mpl \ce{K2CrO4} solution was added to the 10\ml of tap water using a dropper.
+	\item The initial volume of \ce{AgNO3} solution in the burette was noted down. The tap water was titrated with the \ce{AgNO3} solution until the solution turned reddish-brown (see Figure x). The final amount of solution in the burette was noted down.
+	\item Steps 4 to 6 were repeated for 2-3 more trials.
+	\item Steps 4 to 7 were repeated for deionized water and water boiled for 3, 6, 9, and 20 minutes using a hot plate.
+\end{enumerate}
+
+\section*{Data}
 
 % \begin{noindent}
 <?
@@ -28,39 +65,64 @@ const rawData = [
 	[0, 11.45 - 10.15, 10],
 	[0, 17.45 - 16.2, 10],
 	[0, 18.7 - 17.45, 10],
+	[3, 5.6 - 4.3, 10],
 	[3, 14.3 - 13, 10],
 	[3, 13 - 11.75, 10],
 	[6, 20.15 - 18.7, 10],
 	[6, 30.8 - 29.4, 10],
+	[6, 7 - 5.6, 10],
+	[9, 8.8 - 7, 10],
 	[9, 16.2 - 14.3, 10],
 	[9, 10.15 - 8.65, 10],
 	[20, 26.4 - 20.15, 10],
 	[20, 29.4 - 26.4, 5],
 	['deionized', 11.75 - 11.45, 10],
-	['deionized', 31.6 - 31.15],
+	['deionized', 31.15 - 30.8, 10],
+	['deionized', 31.6 - 31.15, 10],
 ];
 
 const headers = ['minutesBoiled', 'titrantAmount', 'waterAmount'];
 
-const data = rawData.map(row => R.zip(row, headers));
+const data = rawData.map(row => Object.fromEntries(R.zip(headers, row)));
 ?>
 % \end{noindent}
 
-<?= escapeLatex(JSON.stringify(data)) ?>
+\begin{table}[H]
+	\caption{TODO}
+	\def\arraystretch{1.5}
+	\begin{tabularx}{\linewidth}{|
+			>{\RaggedRight}X|
+			>{\RaggedRight}X|
+			>{\RaggedRight}X|
+			>{\RaggedRight}X|
+		}
+		\hline
+		\textbf{Trial Number}         &
+		\textbf{Time Boiled /\minute} &
+		\textbf{Titrant Amount /\ml}  &
+		\textbf{Amount of Water /\ml}
+		\\\hline
+		% \begin{noindent}
+		<? for (const [rowIndex, row] of data.entries()) { ?>
+			Trial <?= rowIndex + 1 ?>
+			& <?= row.minutesBoiled ?>
+			& <?= sigfig(row.titrantAmount, 3) ?>
+			& <?= row.waterAmount ?>
+			\\\hline
+		<? } ?>
+		% \end{noindent}
+	\end{tabularx}
+\end{table}
 
-\section*{Purpose}
-Investigating the relationship between the time tap water is boiled and the amount of chlorine concentration remaining.
+\section*{Analysis}
 
-\section*{Materials}
+To determine the amount of chlorine ions in the water, the amount of water and the amount of titrant is used.
 
-\begin{itemize}
-	\item Burette
-	\item 0.1\mpl~Silver Nitrate Solution
-	\item 0.25\mpl~Potassium Chromate Indicator Solution
-	\item 250\ml~Erlenmyler Flask
-\end{itemize}
+The equation of the reaction can be represented as follows:
 
-\section*{Procedure}
+\centerline{\ce{AgNO3_{(aq)} + Cl^{-}_{(aq)} -> AgCl_{(s)} + NO3^{-}_{(aq)}}}
+
+\section*{Calculations}
 
 % TODO: add reference
 Because the concentration of Chloride ions in tap water is very trace (maximum of \SI{4}{\mg\per\litre}), I need to dilute the Silver Nitrate Solution.
