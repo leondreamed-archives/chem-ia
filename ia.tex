@@ -251,20 +251,21 @@ function formatFinalMolesOfChlorine(rowIndex: number) {
 			&
 			<? if (row.minutesBoiled !== data[rowIndex - 1]?.minutesBoiled) { ?>
 				<?
-					const end = data.findIndex(dataRow => dataRow.minutesBoiled !== row.minutesBoiled, rowIndex);
+					const end = data.findIndex((dataRow, i) => i >= rowIndex && dataRow.minutesBoiled !== row.minutesBoiled);
 					const trialIndexes = R.range(rowIndex, end === -1 ? data.length : end);
-					const trialMoles = trialIndexes.map(trialIndex => calculateMolesOfChlorine(trialIndex));
+					const trialMoles = trialIndexes.map(
+						(trialIndex) => calculateMolesOfChlorine(trialIndex)
+					);
 					const averageMolesOfChlorine = R.mean(trialMoles);
 					const sumOfUncertaintyOfAverage = R.sum(trialIndexes.map(
-						(trialIndex) => {
+						(trialIndex) =>
 							calculateMolesOfChlorine(trialIndex) *
 							(calculateMolesOfChlorineUncertaintyPercentage(trialIndex) / 100)
-						}
 					));
 					const uncertaintyPercentOfAverage = sumOfUncertaintyOfAverage / R.sum(trialMoles)
 					const uncertaintyOfAverage = averageMolesOfChlorine * uncertaintyPercentOfAverage;
 				?>
-				\multirow{<?= R.count(r => r.minutesBoiled === row.minutesBoiled, data) ?>}{*}{<?= averageMolesOfChlorine ?>}
+				\multirow{<?= R.count(r => r.minutesBoiled === row.minutesBoiled, data) ?>}{*}{<?= sf(averageMolesOfChlorine, 3) ?> $\pm$ <?= sf(uncertaintyOfAverage, 3) ?>}
 				\\\cline{1-2}
 			<? } else if (row.minutesBoiled !== data[rowIndex + 1]?.minutesBoiled) { ?>
 				\\\hline
