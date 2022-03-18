@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[12pt, demo]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{siunitx}
 \usepackage[version=4]{mhchem}
@@ -7,6 +7,7 @@
 \usepackage[font=small, skip=3pt]{caption}
 \usepackage{float}
 \usepackage{amsmath}
+\usepackage{multirow}
 
 \DeclareSIUnit{\mpl}{\mol\per\litre}
 \DeclareSIUnit{\mmol}{\milli\mol}
@@ -137,7 +138,7 @@ const data = rawData.map(row => Object.fromEntries(R.zip(headers, row)));
 		<? for (const [rowIndex, row] of data.entries()) { ?>
 			Trial <?= rowIndex + 1 ?>
 			& <?= row.minutesBoiled ?>
-			& <?= sf(row.titrantAmount, 3) ?>
+			& <?= row.titrantAmount.toFixed(2) ?>
 			& <?= row.amountOfWater ?>
 			\\\hline
 		<? } ?>
@@ -237,16 +238,28 @@ function formatFinalMolesOfChlorine(rowIndex: number) {
 \begin{table}[H]
 	\caption{TODO}
 	\def\arraystretch{1.5}
-	\begin{tabularx}{\linewidth}{|X|X|}
+	\begin{tabularx}{\linewidth}{|X|X|X|}
 		\hline
-		Time Boiled /\si{\minute}
-		 & Moles of \ce{Cl^-} /\si{\mmol}
+		\textbf{Time Boiled} /\si{\minute}
+		 & \textbf{Amount of \ce{Cl^-}} /\si{\mmol}
+		 & \textbf{Average amount of \ce{Cl^-}}
 		\\\hline
 		% \begin{noindent}
 		<? for (const [rowIndex, row] of data.entries()) { ?>
 			<?= row.minutesBoiled ?>
 			& <?= formatFinalMolesOfChlorine(rowIndex) ?>
-			\\\hline
+			&
+			<? if (row.minutesBoiled !== data[rowIndex - 1]?.minutesBoiled) { ?>
+				<?
+					const avgAmount = R.range
+				?>
+				\multirow{<?= R.count(r => r.minutesBoiled === row.minutesBoiled, data) ?>}{*}{Multirow}
+				\\\cline{1-2}
+			<? } else if (row.minutesBoiled !== data[rowIndex + 1]?.minutesBoiled) { ?>
+				\\\hline
+			<? } else { ?>
+				\\\cline{1-2}
+			<? } ?>
 		<? } ?>
 		% \end{noindent}
 	\end{tabularx}
@@ -255,7 +268,9 @@ function formatFinalMolesOfChlorine(rowIndex: number) {
 Plotting these values on a graph yields the following result:
 
 \begin{figure}[H]
-	\includegraphics{}
+	\centering
+	\caption{TODO}
+	\includegraphics{assets/}
 \end{figure}
 
 
