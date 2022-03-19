@@ -228,9 +228,13 @@ function calculateMolesOfChlorineUncertaintyPercentage(rowIndex: number) {
 function formatFinalMolesOfChlorine(rowIndex: number) {
 	const moles = calculateMolesOfChlorine(rowIndex);
 	const uncertaintyPercentage = calculateMolesOfChlorineUncertaintyPercentage(rowIndex);
-	const uncertaintyString = sf(moles * (uncertaintyPercentage / 100), 1);
+	return roundToUncertaintyDecimalPlaces(moles, uncertaintyPercentage);
+}
+
+function roundToUncertaintyDecimalPlaces(value: number, uncertaintyPercentage: number) {
+	const uncertaintyString = sf(value * (uncertaintyPercentage / 100), 1);
 	const decimalPlaces = uncertaintyString.length - uncertaintyString.indexOf('.') - 1;
-	return `${moles.toFixed(decimalPlaces)} $\\pm$ ${uncertaintyString}`;
+	return `${value.toFixed(decimalPlaces)} $\\pm$ ${uncertaintyString}`;
 }
 ?>
 % \end{noindent}
@@ -242,7 +246,7 @@ function formatFinalMolesOfChlorine(rowIndex: number) {
 		\hline
 		\textbf{Time Boiled} /\si{\minute}
 		 & \textbf{Amount of \ce{Cl^-}} /\si{\mmol}
-		 & \textbf{Average amount of \ce{Cl^-}}
+		 & \textbf{Average amount of \ce{Cl^-}} /\si{\mmol}
 		\\\hline
 		% \begin{noindent}
 		<? for (const [rowIndex, row] of data.entries()) { ?>
@@ -262,10 +266,16 @@ function formatFinalMolesOfChlorine(rowIndex: number) {
 							calculateMolesOfChlorine(trialIndex) *
 							(calculateMolesOfChlorineUncertaintyPercentage(trialIndex) / 100)
 					));
-					const uncertaintyPercentOfAverage = sumOfUncertaintyOfAverage / R.sum(trialMoles)
-					const uncertaintyOfAverage = averageMolesOfChlorine * uncertaintyPercentOfAverage;
+					const uncertaintyPercentageOfAverage = sumOfUncertaintyOfAverage / R.sum(trialMoles) * 100
 				?>
-				\multirow{<?= R.count(r => r.minutesBoiled === row.minutesBoiled, data) ?>}{*}{<?= sf(averageMolesOfChlorine, 3) ?> $\pm$ <?= sf(uncertaintyOfAverage, 3) ?>}
+				\multirow{
+					<?=
+						R.count(
+							(r) => r.minutesBoiled === row.minutesBoiled,
+							data
+						)
+					?>
+				}{*}{<?= roundToUncertaintyDecimalPlaces(averageMolesOfChlorine, uncertaintyPercentageOfAverage) ?>}
 				\\\cline{1-2}
 			<? } else if (row.minutesBoiled !== data[rowIndex + 1]?.minutesBoiled) { ?>
 				\\\hline
