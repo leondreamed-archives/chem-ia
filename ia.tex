@@ -30,9 +30,9 @@ Investigating the relationship between boiling tap water and the amount of chlor
 \section*{Introduction}
 Chlorine is a common disinfectant used by water treatment facilities to kill pathogens and viruses in water. <?# TODO: talk a bit more about how ?> However, while the concentration of chlorine present in our tap water isn't enough to make it harmful, it does create an unpleasant odour in the water.
 
+One method of removing chlorine from water is through boiling, where the free chlorine
 
-
-
+Boiling water
 
 % TODO: write about interest in water filters
 
@@ -45,8 +45,6 @@ Chlorine is a common disinfectant used by water treatment facilities to kill pat
 \section*{Risk assessment}
 
 % Calculate amount of "chlorine gas" released lol
-
-
 
 \section*{Materials}
 
@@ -266,7 +264,9 @@ function roundToUncertaintyDecimalPlaces(value: number, uncertaintyPercentage: n
 							calculateMolesOfChlorine(trialIndex) *
 							(calculateMolesOfChlorineUncertaintyPercentage(trialIndex) / 100)
 					));
-					const uncertaintyPercentageOfAverage = sumOfUncertaintyOfAverage / R.sum(trialMoles) * 100
+					const uncertaintyPercentageOfAverage =
+						sumOfUncertaintyOfAverage / R.sum(trialMoles) * 100
+					console.log(rowIndex, averageMolesOfChlorine, averageMolesOfChlorine * (uncertaintyPercentageOfAverage / 100))
 				?>
 				\multirow{
 					<?=
@@ -294,7 +294,6 @@ Plotting these values on a graph yields the following result:
 	\caption{TODO}
 	\includegraphics{assets/}
 \end{figure}
-
 
 \section*{Analysis}
 
