@@ -28,25 +28,64 @@
 Investigating the relationship between boiling tap water and the amount of chlorine concentration remaining.
 
 \section*{Introduction}
-Chlorine is a common disinfectant used by water treatment facilities to kill pathogens and viruses in water. <?# TODO: talk a bit more about how ?> However, while the concentration of chlorine present in our tap water isn't enough to make it harmful, it does create an unpleasant odour in the water.
 
-One method of removing chlorine from water is through boiling, where the free chlorine
+When chlorine is added to water, it produces hypochlorous acid (\ce{HOCl}):
+
+\centerline{\ce{Cl2 + H2O -> HOCl + H^+ + OCl^-}}
+
+Hypochlorous acid is a weak acid that is effective at destroying protein structures in deadly bacteria like salmonella and E. coli, as well as many viruses. Thus, water treatment facilities often add chlorine to treat waste water so that the water in our taps is safe for us to consume. By the time the water disinfected with chlorine reaches our homes, the amount of chlorine is very trace (around 1 to 3 ppm), and safe for us to consume.
+
+However, chlorine added to water can produces an unpleasant taste, even in very trace amounts. One way my family has been removing the undesirable taste of chlorine in tap water is through boiling it before drinking it. This works because the solubility of gases in liquids decreases with increasing temperature. Thus, as water is heated up, it cannot hold as much free chlorine in the water, and so the free chlorine is released in the form of chlorine gas.
+
+
+However, chlorine
+
+However, while the concentration of chlorine present in our tap water isn't enough to make it harmful, it does create an unpleasant odour in the water.
+
+Currently, one way my family removes the undesirable chlorine taste is water is through boiling tap water before drinking it. This works because Chlorine is a gas at room temperature,
+
+Currently, a common way that my family removes chlorine from tap water is through boiling the water.
+% TODO: explain how this works
 
 Boiling water
-
 % TODO: write about interest in water filters
 
+My family has been considering investing in a reverse osmosis filter instead to more conveniently remove the chlorine odour from tap water. The way reverse osmosis filters work is
+
+% TODO: write about how reverse osmosis filters work!!
+
 \section*{Hypothesis}
+Because chlorine is a gas at room temperature, boiling the water drives the gas out of the water.
 
 \section*{Variables}
 
+\begin{table}[H]
+	\def\arraystretch{1.5}
+	\caption{A list of independent, dependent, and controlled variables during the experiment.}
+	\begin{tabularx}{\linewidth}{|X|X|}
+		\hline
+		\multicolumn{2}{|X|}{\centerline{\textbf{Independent Variable}}}
+		\\\hline
+		Amount of time water is boiled &
+		TODO
+		\\\hline
+		\multicolumn{2}{|X|}{\centering \textbf{Dependent Variable}}
+		\\\hline
+		Amount of chlorine in water &
+		TODO
+		\\\hline
+		\multicolumn{2}{|X|}{\centering \textbf{Controlled Variables}}
+		\\\hline
+		Concentration of Silver Nitrate &
+		TODO
+		\\\hline
+		Amount of water titrated &
+		TODO
+		\\\hline
+	\end{tabularx}
+\end{table}
+
 \section*{Apparatus}
-
-\section*{Risk assessment}
-
-% Calculate amount of "chlorine gas" released lol
-
-\section*{Materials}
 
 <?#
 I ended up using 2 mL total of 1 mol/L K2CrO4
@@ -56,12 +95,25 @@ I remember using 0.01M of AgNO3 as well
 ?>
 
 \begin{itemize}
-	\item Burette
-	\item 0.1\mpl Silver Nitrate Solution
-	\item 0.25\mpl Potassium Chromate Indicator Solution
-	\item 250\ml Erlenmeyer Flask
+	\item 50\ml Burette with 0.1\ml graduations
+	\item Silver Nitrate
+	\item 0.1\mpl Potassium Chromate Stock Solution
+	\item 250\ml Erlenmeyer Flask for Titration
+	\item 250\ml Beaker for Boiling water
 	\item Hot Plate
+	\item Burette stand
+	\item 10\ml pipette
+	\item Reverse Osmosis Filter
+	\item 100\ml graduated cylinder with 1\ml graduations for measuring water
+	\item 10\ml graduated cylinder for creating \ce{K2CrO4} solution
+	\item 100\ml graduated cylinder for creating 50\ml \ce{AgNO3} solution
+	\item Analytical scale with $\pm$0.0001\gram precision
 \end{itemize}
+
+\section*{Risk assessment}
+
+Even though chlorine gas is released when tap water is boiled, the amount of chlorine released is so trace that it poses no appreciable danger. According to toronto.ca, the amount of chlorine in drinking water is regulated to be between 1 and \SI{3}{\mg\per\litre}, which is equal to 1 to 3 ppm. In addition, the experiment only involves boiling 100\ml of water at a time, which would only produce 0.1\mg to 0.3\mg of chlorine gas at a time, which according to ,
+Even if all this free chlorine is released into the air, because the experiment is conducted in a large and ventilated room, the trace amount of chlorine gas released poses no threat as a health hazard.
 
 \section*{Procedure}
 
@@ -266,7 +318,6 @@ function roundToUncertaintyDecimalPlaces(value: number, uncertaintyPercentage: n
 					));
 					const uncertaintyPercentageOfAverage =
 						sumOfUncertaintyOfAverage / R.sum(trialMoles) * 100
-					console.log(rowIndex, averageMolesOfChlorine, averageMolesOfChlorine * (uncertaintyPercentageOfAverage / 100))
 				?>
 				\multirow{
 					<?=
@@ -297,6 +348,27 @@ Plotting these values on a graph yields the following result:
 
 \section*{Analysis}
 
+Based on the graph, the relationship between the amount of time the water was boiled for and the remaining chlorine in the water is quadratic. The equation of the trendline is as follows:
+%
+\begin{align*}
+	y = 0.00002t^2 - 0.001t + 0.0013
+\end{align*}
+
+Where $y$ refers to the amount of chlorine remaining in the water sample (in \si{\mmol}) and where $t$ refers to the time the water has been boiled for (in \si{\minute}).
+
+This graph goes against the hypothesis presented earlier, where it was predicted that the amount of chlorine remaining in the water should \textit{decrease} as the water was boiled for longer.
+
+After conducting further research, it appears that the source of the water from the experiment (the high school's tap water) may have been disinfected with chloramine instead of chlorine. Unlike chlorine, boiling water containing chloramine.
+
+This explanation is further supported by the effectiveness of the reverse osmosis filter used in the school, which is represented by the red line in the graph. Unlike boiling, reverse osmosis is effective at removing chloramine.
+
+Thus, since boiling doesn't effectively remove chloramine, by boiling the water, the chloramine is still left in the water, making the water more concentrated with chlorine.
+
+Thus, by boiling the water, it likely increased the concentration of chloramine and thus the chlorine concentration of the water, explaining the positive correlation between the time boiled and the amount of chlorine in the water.
+
+
+% TODO: explain discrepancy in graph
+
 % TODO: cite https://www.toronto.ca/311/knowledgebase/kb/docs/articles/toronto-water/water-treatment-and-supply/water-treatment-plants/f.j.-horgan-treatment-plant/reasons-that-the-city-uses-chlorine-to-treat-drinking-water.html
 To verify the accuracy of this amount, the number of moles of chlorine can be compared to the recommended amount of chlorine concentration in drinking water: between 1\mg/\litre and 3\mg/\litre:
 %
@@ -321,13 +393,8 @@ Converting this amount to \si{\mg\per\litre} gives us the following amount:
 
 This result is off by an order of magnitude. A possible explanation for this is that the \ce{AgNO3} solution and \ce{K2CrO4} solutions were too dilute, so the initial colour change when all the \ce{AgNO3} ions had been formed was too faint to notice.
 
-<?#
-Looks like Toronto uses chloramine to disinfect water???
-https://www.aquatell.ca/blogs/aquatell/chloramine-use-in-canadian-cities
-?>
 
 <?#
-https://aquanswers.com/does-boiling-water-remove-chlorine-chloramine/
 ?>
 
 \end{document}
