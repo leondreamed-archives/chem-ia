@@ -1,0 +1,90 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 debug pnpm:package-manifest": {
+    "initial": {
+      "dependencies": {
+        "http-server": "^14.1.0",
+        "latex-workflow": "^1.1.10"
+      },
+      "dependenciesMeta": {
+        "latex-workflow": {
+          "node": "/Users/leonzalion/Library/pnpm/nodejs/16.14.1/bin/node"
+        },
+        "http-server": {
+          "node": "/Users/leonzalion/Library/pnpm/nodejs/16.14.1/bin/node"
+        }
+      }
+    },
+    "prefix": "/Users/leonzalion/Library/pnpm/nodejs/16.14.1/pnpm-global/5"
+  },
+  "2 debug pnpm:context": {
+    "currentLockfileExists": true,
+    "storeDir": "/Users/leonzalion/.pnpm-store/v3",
+    "virtualStoreDir": "/Users/leonzalion/Library/pnpm/nodejs/16.14.1/pnpm-global/5/node_modules/.pnpm"
+  },
+  "3 debug pnpm:stage": {
+    "prefix": "/Users/leonzalion/Library/pnpm/nodejs/16.14.1/pnpm-global/5",
+    "stage": "resolution_started"
+  },
+  "4 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/http-server/14.1.0",
+    "wanted": {
+      "dependentId": ".",
+      "name": "http-server",
+      "rawSpec": "^14.1.0"
+    }
+  },
+  "5 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/latex-workflow/1.1.10",
+    "wanted": {
+      "dependentId": ".",
+      "name": "latex-workflow",
+      "rawSpec": "^1.1.10"
+    }
+  },
+  "6 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/http-server/14.1.0",
+    "requester": "/Users/leonzalion/Library/pnpm/nodejs/16.14.1/pnpm-global/5",
+    "status": "found_in_store"
+  },
+  "7 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/http-server/14.1.0",
+    "requester": "/Users/leonzalion/Library/pnpm/nodejs/16.14.1/pnpm-global/5",
+    "status": "resolved"
+  },
+  "8 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/latex-workflow/1.1.10",
+    "requester": "/Users/leonzalion/Library/pnpm/nodejs/16.14.1/pnpm-global/5",
+    "status": "found_in_store"
+  },
+  "9 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/latex-workflow/1.1.10",
+    "requester": "/Users/leonzalion/Library/pnpm/nodejs/16.14.1/pnpm-global/5",
+    "status": "resolved"
+  },
+  "10 debug pnpm:update-check": {
+    "currentVersion": "6.32.3",
+    "latestVersion": "6.32.3"
+  },
+  "11 error pnpm": {
+    "code": "ERR_PNPM_FETCH_404",
+    "hint": "latex-workshop is not in the npm registry, or you have no permission to fetch it.\n\nAn authorization header was used: Bearer npm_[hidden]",
+    "request": {
+      "authHeaderValue": "Bearer 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",
+      "url": "https://registry.npmjs.org/latex-workshop"
+    },
+    "response": {
+      "size": 0
+    },
+    "pkgName": "latex-workshop",
+    "pkgsStack": [],
+    "err": {
+      "name": "pnpm",
+      "message": "GET https://registry.npmjs.org/latex-workshop: Not Found - 404",
+      "code": "ERR_PNPM_FETCH_404",
+      "stack": "pnpm: GET https://registry.npmjs.org/latex-workshop: Not Found - 404\n    at RetryOperation._fn (/usr/local/Cellar/node/17.5.0/pnpm-global/5/node_modules/.pnpm/pnpm@6.32.3/node_modules/pnpm/dist/pnpm.cjs:85709:19)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    }
+  }
+}

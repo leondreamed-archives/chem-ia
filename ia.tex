@@ -25,8 +25,6 @@
 	use-xspace = true
 }
 
-% TODO: figure out what "brand" of water deionizer the school uses
-
 \begin{document}
 
 \section{Purpose}
@@ -44,13 +42,19 @@ However, even in very trace amounts, chlorine added to water can produce an unpl
 
 \begin{figure}[H]
 	\centering
-	\caption{Solubility curve for chlorine}
+	\caption{Solubility curve for chlorine: the hotter the water is, the less dissolved chlorine the water can hold.}
 	\includegraphics{assets/cl-solubility.png}
 \end{figure}
 
 % TODO: cite https://www.engineeringtoolbox.com/gases-solubility-water-d_1148.html
 
-In this experiment, I attempt to determine the effectiveness of this approach by comparing the amounts of chlorine in tap water that has been boiled for different lengths of time.
+In this experiment, I attempt to determine the effectiveness of this approach by comparing the amounts of chlorine in tap water that has been boiled for different lengths of time. Through analyzing the data, I hope to find the optimal amount of time the water should be boiled for in order to remove a significant amount of chlorine.
+
+To determine the amount of chlorine in a sample of tap water, Mohr's method will be used, which determines the chloride ion concentration in a solution by titrating it with silver nitrate. As silver nitrate is added to the solution, the chloride ions bond with the silver ions to create silver chloride:
+
+\centerline{\ce{Ag^{+}_{(aq)} + Cl^{-}_{(aq) -> AgCl_{(s)}}}}
+
+
 
 % TODO: add theory, what would you do if you could increase the scope of the experiment
 
@@ -106,7 +110,7 @@ I remember using 0.01M of AgNO3 as well
 	\item Hot Plate
 	\item Burette stand
 	\item 10\ml pipette
-	\item Water deionizer
+	\item Water deionizer (Thermo Scientific HN High Capacity Cartridge.)
 	\item 100\ml graduated cylinder with 1\ml graduations for measuring water
 	\item 10\ml graduated cylinder for creating \ce{K2CrO4} solution
 	\item 100\ml graduated cylinder for creating 50\ml \ce{AgNO3} solution
@@ -370,14 +374,13 @@ This graph goes against the hypothesis presented earlier, where it was predicted
 
 After conducting further research, it appears that the source of the water from the experiment (the high school's tap water) may have been disinfected with chloramine instead of chlorine. Unlike chlorine, boiling water containing chloramine.
 
-This explanation is further supported by the effectiveness of the reverse osmosis filter used in the school, which is represented by the red line in the graph. Unlike boiling, reverse osmosis is effective at removing chloramine.
+This explanation is further supported by the effectiveness of the deionizer used in trials 1 to 3, which is represented by the red line in the graph. Unlike boiling, deionization is more effective at removing chloramine.
 
 Thus, since boiling doesn't effectively remove chloramine, by boiling the water, the chloramine is still left in the water, making the water more concentrated with chlorine.
 
 Thus, by boiling the water, it likely increased the concentration of chloramine and thus the chlorine concentration of the water, explaining the positive correlation between the time boiled and the amount of chlorine in the water.
 
-Unfortunately, the final volume after boiling the water was not recorded (due to the expectation that it would be irrelevant to the experiment),
-
+Unfortunately, the final volume after boiling the water was not recorded (due to the expectation that it would be irrelevant to the experiment), limiting further analysis between the total amount of water remaining after boiling and the amount of chloramine remaining in the water.
 
 % TODO: explain discrepancy in graph
 
@@ -409,7 +412,10 @@ This result is off by an order of magnitude: the experimental results indicate t
 
 \section{Conclusion}
 
-While the results from this experiment may not have been accurate when compared to the expected amount of chlorine in tap water, there still emerged an evident trend between the amount of chlorine in water. By plotting this trend and observing the positive correlation between, it can be concluded that the city of Toronto likely uses chloramine to disinfect their water.
+While the results from this experiment may not have been accurate when compared to the expected amount of chlorine in Toronto's tap water, the data still displayed an evident trend between the amount of chlorine in water and the time the water was boiled for.
+
+
+Through this trend, a conclusion that By plotting this trend and observing the positive correlation between, it can be concluded that the city of Toronto likely uses chloramine to disinfect their water.
 
 Thus, since boiling water is not as effective in removing chloramine, my family should instead invest in a water filter or a reverse osmosis filter. <?# todo explain how those work ?>
 
