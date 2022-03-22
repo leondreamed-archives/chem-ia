@@ -1,18 +1,23 @@
-\documentclass[12pt, demo]{article}
+\documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{siunitx}
 \usepackage[version=4]{mhchem}
 \usepackage{xltabular}
 \usepackage{ragged2e}
-\usepackage[font=small, skip=3pt]{caption}
+\usepackage[font=small, skip=3pt, labelfont=bf]{caption}
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{multirow}
+\usepackage{enumitem}
 
 \DeclareSIUnit{\mpl}{\mol\per\litre}
 \DeclareSIUnit{\mmol}{\milli\mol}
 \DeclareSIUnit{\gpm}{\gram\per\mol}
 \DeclareSIUnit{\ml}{\milli\litre}
+
+\title{The relationship between boiling tap water and the concentration of chlorine in water remaining.}
+
+\setlist{nosep}
 
 \sisetup{
 	space-before-unit = true,
@@ -24,72 +29,66 @@
 
 \begin{document}
 
-\section*{Purpose}
+\section{Purpose}
 Investigating the relationship between boiling tap water and the amount of chlorine concentration remaining.
 
-\section*{Introduction}
+\section{Background}
 
 Chlorine plays a crucial role in ensuring that our tap water is safe to consume. When chlorine gas is added to water, it produces a weak acid known as hypochlorous acid, \ce{HOCl}:
 
 \centerline{\ce{Cl2 + H2O -> HOCl + H^+ + OCl^-}}
 
-Hypochlorous acid effectively destroys the protein structures of many deadly bacteria like salmonella and E. coli, as well as many viruses. Thus, water treatment facilities often add chlorine to treat waste water to kill the harmful [] in our water. By the time the chlorinated water reaches our homes, the amount of chlorine in the tap water is very trace (around 1 to 3 ppm), and safe for us to consume.
+Hypochlorous acid effectively destroys the protein structures of many deadly bacteria like salmonella and E. coli, as well as many viruses. Thus, water treatment facilities often add chlorine to treat waste water to kill the harmful substances in our water. By the time the chlorinated water reaches our homes, the amount of chlorine in the tap water is very trace (around 1 to 3 ppm), and safe for us to consume.
 
 However, even in very trace amounts, chlorine added to water can produce an unpleasant taste. One way my family has been removing the undesirable taste of chlorine in tap water is by boiling the water. This works because the solubility of gases in liquids decreases with increasing temperature. Thus, as water is heated up, it cannot hold as much free chlorine in the water, and so the free chlorine is released in the form of chlorine gas.
 
 \begin{figure}[H]
-	\caption{TODO: solubility curve for chlorine idk}
-	\includegraphics{TODO}
+	\centering
+	\caption{Solubility curve for chlorine}
+	\includegraphics{assets/cl-solubility.png}
 \end{figure}
 
-However, chlorine
+% TODO: cite https://www.engineeringtoolbox.com/gases-solubility-water-d_1148.html
 
-However, while the concentration of chlorine present in our tap water isn't enough to make it harmful, it does create an unpleasant odour in the water.
+In this experiment, I attempt to determine the effectiveness of this approach by comparing the amounts of chlorine in tap water that has been boiled for different lengths of time.
 
-Currently, one way my family removes the undesirable chlorine taste is water is through boiling tap water before drinking it. This works because Chlorine is a gas at room temperature,
+% TODO: add theory, what would you do if you could increase the scope of the experiment
 
-Currently, a common way that my family removes chlorine from tap water is through boiling the water.
-% TODO: explain how this works
-
-Boiling water
-% TODO: write about interest in water filters
-
-My family has been considering investing in a reverse osmosis filter instead to more conveniently remove the chlorine odour from tap water. The way reverse osmosis filters work is
-
-% TODO: write about how reverse osmosis filters work!!
-
-\section*{Hypothesis}
+\section{Hypothesis}
 Because chlorine is a gas at room temperature, boiling the water drives the gas out of the water.
 
-\section*{Variables}
+\section{Variables}
 
 \begin{table}[H]
 	\def\arraystretch{1.5}
 	\caption{A list of independent, dependent, and controlled variables during the experiment.}
 	\begin{tabularx}{\linewidth}{|X|X|}
 		\hline
-		\multicolumn{2}{|X|}{\centerline{\textbf{Independent Variable}}}
+		\multicolumn{2}{|c|}{\textbf{Independent Variable}}
 		\\\hline
-		Amount of time water is boiled &
+		Amount of time water is boiled  &
 		TODO
 		\\\hline
-		\multicolumn{2}{|X|}{\centering \textbf{Dependent Variable}}
+		\multicolumn{2}{|c|}{\centering \textbf{Dependent Variable}}
 		\\\hline
-		Amount of chlorine in water &
+		Amount of chlorine in water     &
 		TODO
 		\\\hline
-		\multicolumn{2}{|X|}{\centering \textbf{Controlled Variables}}
+		\multicolumn{2}{|c|}{\centering \textbf{Controlled Variables}}
 		\\\hline
 		Concentration of Silver Nitrate &
 		TODO
 		\\\hline
-		Amount of water titrated &
+		Amount of water titrated        &
+		TODO
+		\\\hline
+		Temperature of hot plate        &
 		TODO
 		\\\hline
 	\end{tabularx}
 \end{table}
 
-\section*{Apparatus}
+\section{Apparatus}
 
 <?#
 I ended up using 2 mL total of 1 mol/L K2CrO4
@@ -107,7 +106,7 @@ I remember using 0.01M of AgNO3 as well
 	\item Hot Plate
 	\item Burette stand
 	\item 10\ml pipette
-	\item Reverse Osmosis Filter
+	\item Water deionizer
 	\item 100\ml graduated cylinder with 1\ml graduations for measuring water
 	\item 10\ml graduated cylinder for creating \ce{K2CrO4} solution
 	\item 100\ml graduated cylinder for creating 50\ml \ce{AgNO3} solution
@@ -115,18 +114,16 @@ I remember using 0.01M of AgNO3 as well
 	\item Droppers
 \end{itemize}
 
-
-
-\section*{Risk assessment}
+\section{Risk assessment}
 
 Even though chlorine gas is released when tap water is boiled, the amount of chlorine released is so trace that it poses no appreciable danger. According to toronto.ca, the amount of chlorine in drinking water is regulated to be between 1 and \SI{3}{\mg\per\litre}, which is equal to 1 to 3 ppm. In addition, the experiment only involves boiling 100\ml of water at a time, which would only produce 0.1\mg to 0.3\mg of chlorine gas at a time, which according to ,
 Even if all this free chlorine is released into the air, because the experiment is conducted in a large and ventilated room, the trace amount of chlorine gas released poses no threat as a health hazard.
 
-\section*{Procedure}
+\section{Procedure}
 
 \begin{enumerate}
 	\item A silver nitrate solution (\ce{AgNO3(aq)}) was created by measuring out 0.0817\g of solid \ce{AgNO3} and diluting it with 50\ml of deionized water.
-	\item A dilute solution of 0.01\mpl \ce{K2CrO4} was created by measuring out 2\ml of the 0.1\mpl stock solution and diluting it with 10\ml of deionized water.
+	\item A dilute solution of 0.01\mpl \ce{K2CrO4} was created by measuring out 1\ml of the 0.1\mpl \ce{K2CrO4} stock solution and diluting it with 10\ml of deionized water.
 	\item The \ce{AgNO3} solution was poured into a burette.
 	\item 10\ml of tap water was transported into a 100\ml Erlenmeyer flask using a 10\ml pipette.
 	\item Approximately 1\ml of the 0.01\mpl \ce{K2CrO4} solution was added to the 10\ml of tap water using a dropper.
@@ -135,7 +132,7 @@ Even if all this free chlorine is released into the air, because the experiment 
 	\item Steps 4 to 7 were repeated for deionized water and water boiled for 3, 6, 9, and 20 minutes using a hot plate.
 \end{enumerate}
 
-\section*{Data}
+\section{Data}
 
 % \begin{noindent}
 <?
@@ -177,7 +174,7 @@ const data = rawData.map(row => Object.fromEntries(R.zip(headers, row)));
 % \end{noindent}
 
 \begin{table}[H]
-	\caption{TODO}
+	\caption{Data collected during the experiment over 16 trials. Note that the amount of water used for Trial 16 is only 5\ml because }
 	\def\arraystretch{1.5}
 	\begin{tabularx}{\linewidth}{|
 			>{\RaggedRight}X|
@@ -203,9 +200,9 @@ const data = rawData.map(row => Object.fromEntries(R.zip(headers, row)));
 	\end{tabularx}
 \end{table}
 
-\section*{Calculations}
+\section{Calculations}
 
-To determine the amount of chloride ions in the water, the amount of water and the amount of titrant is used.
+To determine the concentration of chloride ions in the water, the amount of water and the amount of titrant is used.
 
 The mass of \ce{AgNO3_{(s)}} used to create the silver nitrate solution was <?= silverNitrateSol.mass ?>\g. The analytical scale used to weigh this amount had an uncertainty of $\pm$0.0001\g. Using this information, the number of moles of silver nitrate in the solution can be determined:
 %
@@ -229,7 +226,7 @@ The silver nitrate was diluted with 50\ml of deionized water using a graduated c
 	c & = <?= sf(silverNitrateSol.concentration, 3) ?>\mpl \pm 1.1\%
 \end{align*}
 
-The concentration of the \ce{AgNO3} solution can then be used to determine the moles of \ce{AgNO3} for a given volume of the silver nitrate solution. For example, using the data in Trial 1, the volume of the silver nitrate solution needed to titrate the water was 1.30\ml $\pm$ 0.1\ml, or 1.30\ml $\pm$ 7.7\%, giving the following number of moles of \ce{AgNO3}:
+The concentration of the \ce{AgNO3} solution can then be used to determine the moles of \ce{AgNO3} for a given volume of the silver nitrate solution. For example, using the data in Trial 4, the volume of the silver nitrate solution needed to titrate the water was 1.30\ml $\pm$ 0.1\ml, or 1.30\ml $\pm$ 7.7\%, giving the following number of moles of \ce{AgNO3}:
 %
 \begin{align*}
 	n & = V \times c
@@ -299,11 +296,15 @@ function roundToUncertaintyDecimalPlaces(value: number, uncertaintyPercentage: n
 \begin{table}[H]
 	\caption{TODO}
 	\def\arraystretch{1.5}
-	\begin{tabularx}{\linewidth}{|X|X|X|}
+	\begin{tabularx}{\linewidth}{|
+			>{\RaggedRight}X|
+			>{\RaggedRight}X|
+			>{\RaggedRight}X|
+		}
 		\hline
 		\textbf{Time Boiled} /\si{\minute}
-		 & \textbf{Amount of \ce{Cl^-}} /\si{\mmol}
-		 & \textbf{Average amount of \ce{Cl^-}} /\si{\mmol}
+		 & \textbf{Concentration of \ce{Cl^-}} /\si{\mpl}
+		 & \textbf{Average concentration of \ce{Cl^-}} /\si{\mpl}
 		\\\hline
 		% \begin{noindent}
 		<? for (const [rowIndex, row] of data.entries()) { ?>
@@ -345,15 +346,17 @@ function roundToUncertaintyDecimalPlaces(value: number, uncertaintyPercentage: n
 	\end{tabularx}
 \end{table}
 
+\newpage
+
 Plotting these values on a graph yields the following result:
 
 \begin{figure}[H]
 	\centering
-	\caption{TODO}
-	\includegraphics{assets/}
+	\caption{The concentration of chlorine remaining plotted against boiling time.}
+	\includegraphics{assets/concentration-vs-boiling-time.png}
 \end{figure}
 
-\section*{Analysis}
+\section{Analysis}
 
 Based on the graph, the relationship between the amount of time the water was boiled for and the remaining chlorine in the water is quadratic. The equation of the trendline is as follows:
 %
@@ -386,7 +389,7 @@ To verify the accuracy of this amount, the number of moles of chlorine can be co
 	\\
 	M_{\ce{Cl^-}} & = 35.45\gpm
 	\\
-	m_{\ce{Cl^-}} & = <?= sf(trial1Calculations.molesOfChlorine, 3) ?>\mmol \times 35.45\gpm
+	m_{\ce{Cl^-}} & = <?= sf(trial1Calculations.molesOfChlorine, 3) ?> \pm 8.8\% \mmol \times 35.45\gpm
 	\\
 	<? trial1Calculations.massOfChlorine = trial1Calculations.molesOfSilverNitrate * 35.45 -?>
 	m_{\ce{Cl^-}} & = <?= sf(trial1Calculations.massOfChlorine, 3) ?>\mg
@@ -400,10 +403,19 @@ Converting this amount to \si{\mg\per\litre} gives us the following amount:
 	c = <?= sf(trial1Calculations.massOfChlorine * 100, 3) ?>\mg/\litre
 \end{align*}
 
-This result is off by an order of magnitude. A possible explanation for this is that the \ce{AgNO3} solution and \ce{K2CrO4} solutions were too dilute, so the initial colour change when all the \ce{AgNO3} ions had been formed was too faint to notice.
+This result is off by an order of magnitude: the experimental results indicate that there is over 10 times the amount of chlorine that is expected from tap water. The reason for this discrepancy is likely due to the low concentrations, A possible explanation for this is that the \ce{AgNO3} solution and \ce{K2CrO4} solutions were too dilute, so the initial colour change when all the \ce{AgNO3} ions had been formed was too faint to notice.
 
+<?# add more possible reasons for this error ?>
 
-<?#
-?>
+\section{Conclusion}
+
+While the results from this experiment may not have been accurate when compared to the expected amount of chlorine in tap water, there still emerged an evident trend between the amount of chlorine in water. By plotting this trend and observing the positive correlation between, it can be concluded that the city of Toronto likely uses chloramine to disinfect their water.
+
+Thus, since boiling water is not as effective in removing chloramine, my family should instead invest in a water filter or a reverse osmosis filter. <?# todo explain how those work ?>
 
 \end{document}
+
+% TODO: add 1 strength and many weaknesses
+% TODO: past passive
+
+% TODO: **specific** improvements (e.g. a specific instrument)
