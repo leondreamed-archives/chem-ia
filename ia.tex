@@ -15,8 +15,6 @@
 \DeclareSIUnit{\gpm}{\gram\per\mol}
 \DeclareSIUnit{\ml}{\milli\litre}
 
-\title{The relationship between boiling tap water and the concentration of chlorine in water remaining.}
-
 \setlist{nosep}
 
 \sisetup{
@@ -25,18 +23,31 @@
 	use-xspace = true
 }
 
+\title{The relationship between boiling tap water and the concentration of chlorine in water remaining}
+\author{}
+\date{}
+
 \begin{document}
 
-\section*{Research Question}
-How does the time tap water is boiled for affect the amount of chlorine dissolved in the water?
+\maketitle
 
-\section{Background}
+\noindent\textbf{Research Question:} How does the time tap water is boiled for affect the amount of remaining chlorine dissolved in the water?
 
-Chlorine gas (\ce{Cl2_{(g)}}) is frequently used at water treatment facilities to remove harmful organisms from waste water to produce water which is safe for us to consume. When chlorine gas added to water, the chlorine reacts in water to form hypochlorous acid (\ce{HOCl}) and hypochloric acid (\ce{HCl}):
+\section{Introduction}
+
+While the concentration of chlorine in our tap water is low enough to be safe to consume, it also produces an unpleasant taste. One way my family has been removing the chlorine in tap water is by boiling it before consuming it. However, different sources provide different recommendations on how long water should be boiled for to remove a significant amount of chlorine from the water: from as short as 10 minutes to as long as 20 minutes. Thus, in my experiment, I plan to investigate the relationship between the time spent boiling tap water and the remaining chlorine concentration, and hopefully determine an optimal amount of time water should be boiled for in order to remove a significant amount of chlorine from the water.
+
+\section{Background Information}
+
+Chlorine gas (\ce{Cl2_{(g)}}) is frequently used at water treatment facilities to remove harmful organisms from waste water to produce water which is safe for us to consume. When chlorine gas added to water, the chlorine reacts with water to form hypochlorous acid (\ce{HOCl}):
 
 \centerline{\ce{Cl2 + H2O -> HOCl + H^+ + Cl^-}}
 
-Hypochlorous acid effectively destroys the protein structures of many deadly bacteria like salmonella and E. coli, as well as many viruses. Thus, water treatment facilities often add chlorine to treat waste water to kill the harmful substances in our water. By the time the chlorinated water reaches our homes, the amount of chlorine in the tap water is very trace (around 1 to 3 ppm), and safe for us to consume.
+Hypochlorous acid has proven effective at inactivating deadly microbiological organisms like salmonella and E. coli, as well as many viruses. It is able to disrupt the cell membrane of these harmful organisms and destroy their protein structures, killing these organisms and preventing illnesses and death from consuming water infected with them.
+
+However, it's not sufficient to add just enough chlorine to disinfect water at the treatment plants, but the concentration of chlorine must be sustained throughout the distribution system to prevent the water in intermediate sources from becoming infected by the time it reaches our homes. In addition, chlorine takes longer to react with certain substances, especially natural organic compounds like algal material. Because of these concerns, water treatment plants add excess chlorine to treat water such that
+
+While chlorine quickly reacts with inorganic compounds in water like ammonia and manganese, it takes longer to react with natural organic compounds like algal material. Thus, excess chlorine is often added at water treatment plants to ensure that the water remains disinfected throughout the distribution system and ultimately at our homes.
 
 However, even in very trace amounts, chlorine added to water can produce an unpleasant taste. One way my family has been removing the undesirable taste of chlorine in tap water is by boiling the water. This works because the solubility of gases in liquids decreases with increasing temperature. Thus, as water is heated up, it cannot hold as much free chlorine in the water, and so the free chlorine is released in the form of chlorine gas.
 
@@ -46,27 +57,15 @@ However, even in very trace amounts, chlorine added to water can produce an unpl
 	\includegraphics{assets/cl-solubility.png}
 \end{figure}
 
-% TODO: cite https://www.engineeringtoolbox.com/gases-solubility-water-d_1148.html
-
 In this experiment, I attempt to determine the effectiveness of this approach by comparing the amounts of chlorine in tap water that has been boiled for different lengths of time. Through analyzing the data, I hope to find the optimal amount of time the water should be boiled for in order to remove a significant amount of chlorine.
+
+\section{Methodology}
 
 To determine the amount of chlorine in a sample of tap water, Mohr's method will be used, which determines the chloride ion concentration in a solution by titrating it with silver nitrate. As silver nitrate is added to the solution, the chloride ions bond with the silver ions to create silver chloride:
 
-\centerline{\ce{Ag^{+}_{(aq)} + Cl^{-}_{(aq) -> AgCl_{(s)}}}}
+\centerline{\ce{Ag^{+}_{(aq)} + Cl^{-}_{(aq)} -> AgCl_{(s)}}}
 
-
-Hypochlorous acid has proven effective at inactivating deadly microbiological organisms like salmonella and E. coli, as well as many viruses. It is able to disrupt the cell membrane of these organisms and destroy their protein structures, ultimately ending in the cell's death.
-
-While chlorine quickly reacts with inorganic compounds in water like ammonia and manganese, it takes longer to react with natural organic compounds like algal material. Thus, excess chlorine is often added at water treatment plants to ensure that the water remains disinfected throughout the distribution system and ultimately at our homes.
-
-Yet, even at low concentrations, chlorine can still produce an unpleasant taste in water. One way that my family has been removing the undesirable taste of chlorine from our tap water by boiling it before using it. This works because the solubility of gases in liquids decreases with increasing temperature. Thus, as water is heated up, the amount of dissolved chlorine it holds decreases, and so the free chlorine is released in the form of chlorine gas.
-
-% TODO: add theory, what would you do if you could increase the scope of the experiment
-
-\section{Hypothesis}
-Because chlorine is a gas at room temperature, boiling the water drives the gas out of the water.
-
-\section{Variables}
+\subsection{Variables}
 
 \begin{table}[H]
 	\def\arraystretch{1.5}
@@ -97,7 +96,7 @@ Because chlorine is a gas at room temperature, boiling the water drives the gas 
 	\end{tabularx}
 \end{table}
 
-\section{Apparatus}
+\subsection{Apparatus}
 
 <?#
 I ended up using 2 mL total of 1 mol/L K2CrO4
@@ -107,26 +106,35 @@ I remember using 0.01M of AgNO3 as well
 ?>
 
 \begin{itemize}
+	\item 250\ml Erlenmeyer Flask
+	\item 250\ml Beaker
 	\item 50\ml Burette with 0.1\ml graduations
-	\item Silver Nitrate
-	\item 0.1\mpl Potassium Chromate Stock Solution
-	\item 250\ml Erlenmeyer Flask for Titration
-	\item 250\ml Beaker for Boiling water
-	\item Hot Plate
 	\item Burette stand
+	\item Hot Plate
 	\item 10\ml pipette
 	\item Water deionizer (Thermo Scientific HN High Capacity Cartridge.)
-	\item 100\ml graduated cylinder with 1\ml graduations for measuring water
-	\item 10\ml graduated cylinder for creating \ce{K2CrO4} solution
-	\item 100\ml graduated cylinder for creating 50\ml \ce{AgNO3} solution
+	\item 2 $\times$ 100\ml graduated cylinder with 1\ml graduations
+	\item 10\ml graduated cylinder
 	\item Analytical scale with $\pm$0.0001\gram precision
-	\item Droppers
+	\item 1\ml Droppers
 \end{itemize}
 
-\section{Risk assessment}
+\subsection{Materials}
 
-Even though chlorine gas is released when tap water is boiled, the amount of chlorine released is so trace that it poses no appreciable danger. According to toronto.ca, the amount of chlorine in drinking water is regulated to be between 1 and \SI{3}{\mg\per\litre}, which is equal to 1 to 3 ppm. In addition, the experiment only involves boiling 100\ml of water at a time, which would only produce 0.1\mg to 0.3\mg of chlorine gas at a time, which according to ,
-Even if all this free chlorine is released into the air, because the experiment is conducted in a large and ventilated room, the trace amount of chlorine gas released poses no threat as a health hazard.
+\begin{itemize}
+	\item Silver Nitrate (\ce{AgNO3_{(s)}}, powdered form)
+	\item 0.1 \mpl Potassium Chromate Solution (\ce{K2CrO4_{(aq)}})
+	\item Deionized Water
+\end{itemize}
+
+\subsection{Risk assessment}
+
+Even though chlorine gas is released when tap water is boiled, the amount of chlorine released is so trace that it poses no appreciable danger. According to toronto.ca, the amount of chlorine in drinking water is regulated to be between 1 and \SI{3}{\mg\per\litre}, which is equal to 1-3 ppm. At this concentration of chlorine gas, mild mucus membrane irritation occurs that can be tolerated for around an hour (<?# todo: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3136961/ ?>). However, because the experiment is conducted in a large and ventilated room and the chlorine gas from boiling tap water is released over a relatively long period of time, the actual concentration of the chlorine gas at any given moment is much lower, thus posing no threat as a health hazard.
+
+Silver nitrate is hazardous and can stain skin and cause damage if it comes in contact with the eyes. Thus, goggles were worn at all times during the experiment and gloves were worn when handling silver nitrate. In addition, silver nitrate is considered hazardous waste due to its reactivity and toxicity, so it must be disposed properly. After each trial, the solution containing tap water, silver nitrate solution and potassium chromate solution was poured into a temporary beaker for storing waste. Once all the experiments were finished, the remaining silver nitrate solution and the contents of the waste beaker were poured in a hazardous waste container provided by the school, with the concentration of silver nitrate recorded.
+
+
+
 
 \section{Procedure}
 
@@ -375,9 +383,9 @@ Based on the graph, the relationship between the amount of time the water was bo
 
 Where $y$ refers to the amount of chlorine remaining in the water sample (in \si{\mmol}) and where $t$ refers to the time the water has been boiled for (in \si{\minute}).
 
-This graph goes against the hypothesis presented earlier, where it was predicted that the amount of chlorine remaining in the water should \textit{decrease} as the water was boiled for longer.
+This graph does not agree with the hypothesis presented earlier, where it was predicted that the amount of chlorine remaining in the water should \textit{decrease} as the water was boiled for longer.
 
-After conducting further research, it appears that the source of the water from the experiment (the high school's tap water) may have been disinfected with chloramine instead of chlorine. Unlike chlorine, boiling water containing chloramine.
+After further investigation, it appears that Toronto adds ammonia during their water treatment system. This reacts with the chlorine in the water to produce chloramine (\ce{NH2Cl}). Compared to chlorine, chloramine is more stable because of the bond between chlorine and ammonia. While this stability allows it to remain in the water supply for a longer period of time, it also makes boiling water an ineffective method at removing chloramine.
 
 This explanation is further supported by the effectiveness of the deionizer used in trials 1 to 3, which is represented by the red line in the graph. Unlike boiling, deionization is more effective at removing chloramine.
 
@@ -430,3 +438,5 @@ Thus, since boiling water is not as effective in removing chloramine, my family 
 % TODO: past passive
 
 % TODO: **specific** improvements (e.g. a specific instrument)
+
+% TODO: add theory, what would you do if you could increase the scope of the experiment
