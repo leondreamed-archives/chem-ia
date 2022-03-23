@@ -12,6 +12,9 @@
 \usepackage{titling}
 \usepackage{graphicx}
 \usepackage{microtype}
+\usepackage[style=apa]{biblatex}
+
+\addbibresource{ia.bib}
 
 \DeclareSIUnit{\mpl}{\mol\per\litre}
 \DeclareSIUnit{\mmol}{\milli\mol}
@@ -496,8 +499,10 @@ In order to reduce the loss of accuracy when identifying the titration endpoint,
 
 Since I didn't have access to a brand new carbon-based water filter or a reverse osmosis filter for this experiment, it would be interesting to compare their effectiveness at removing chloramine from water.
 
-\section{References}
+\newpage
 
+\nocite{*}
+\setlength\bibitemsep{1.5\itemsep}
 \printbibliography
 
 \end{document}
