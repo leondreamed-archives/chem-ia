@@ -9,6 +9,10 @@
 \usepackage{amsmath}
 \usepackage{multirow}
 \usepackage{enumitem}
+\usepackage{titling}
+\usepackage{graphicx}
+
+% TODO: add hypothesis
 
 \DeclareSIUnit{\mpl}{\mol\per\litre}
 \DeclareSIUnit{\mmol}{\milli\mol}
@@ -23,17 +27,21 @@
 	use-xspace = true
 }
 
-\title{The relationship between boiling tap water and the concentration of chlorine in water remaining}
-\author{}
+\title{The Relationship Between Boiling Tap Water and the Remaining Dissolved Chlorine Concentration}
+\author{jjr117}
 \date{}
 
 \begin{document}
 
-\maketitle
+\begin{titlingpage}
+	\maketitle
+\end{titlingpage}
 
 \noindent\textbf{Research Question:} How does the time tap water is boiled for affect the amount of remaining chlorine dissolved in the water?
 
 \section{Introduction}
+
+% TODO: better intro
 
 While the concentration of chlorine in our tap water is low enough to be safe to consume, it also produces an unpleasant taste. One way my family has been removing the chlorine in tap water is by boiling it before consuming it. However, different sources provide different recommendations on how long water should be boiled for to remove a significant amount of chlorine from the water: from as short as 10 minutes to as long as 20 minutes. Thus, in my experiment, I plan to investigate the relationship between the time spent boiling tap water and the remaining chlorine concentration, and hopefully determine an optimal amount of time water should be boiled for in order to remove a significant amount of chlorine from the water.
 
@@ -43,27 +51,64 @@ Chlorine gas (\ce{Cl2_{(g)}}) is frequently used at water treatment facilities t
 
 \centerline{\ce{Cl2 + H2O -> HOCl + H^+ + Cl^-}}
 
-Hypochlorous acid has proven effective at inactivating deadly microbiological organisms like salmonella and E. coli, as well as many viruses. It is able to disrupt the cell membrane of these harmful organisms and destroy their protein structures, killing these organisms and preventing illnesses and death from consuming water infected with them.
+Hypochlorous acid is effective at inactivating deadly microbiological organisms like salmonella and E. coli, as well as many viruses. It is able to kill these harmful organisms by disrupting their cell membranes and destroying their protein structures. Thus, through the use of chlorine, water treatment facilities are able to prevent illnesses and death from otherwise infected water.
 
-However, it's not sufficient to add just enough chlorine to disinfect water at the treatment plants, but the concentration of chlorine must be sustained throughout the distribution system to prevent the water in intermediate sources from becoming infected by the time it reaches our homes. In addition, chlorine takes longer to react with certain substances, especially natural organic compounds like algal material. Because of these concerns, water treatment plants add excess chlorine to treat water such that
+However, it's not sufficient to add just enough chlorine to disinfect water at the treatment plants. An adequate concentration of chlorine must be sustained throughout the entire distribution system. Otherwise, the water could possibly become infected in intermediate sources and become unsafe to drink by the time it reaches our homes. Because of these concerns, water treatment plants add excess chlorine to treat water such that the water that comes out of the tap still contains a small concentration of free chlorine, or chlorine that hasn't yet reacted with undesired substances in the water.
 
-While chlorine quickly reacts with inorganic compounds in water like ammonia and manganese, it takes longer to react with natural organic compounds like algal material. Thus, excess chlorine is often added at water treatment plants to ensure that the water remains disinfected throughout the distribution system and ultimately at our homes.
-
-However, even in very trace amounts, chlorine added to water can produce an unpleasant taste. One way my family has been removing the undesirable taste of chlorine in tap water is by boiling the water. This works because the solubility of gases in liquids decreases with increasing temperature. Thus, as water is heated up, it cannot hold as much free chlorine in the water, and so the free chlorine is released in the form of chlorine gas.
+While the concentration of free chlorine in tap water is low enough to be safe to consume, chlorine can produce an unpleasant taste, even in low amounts. To remove this excess chlorine, my family boils tap water for 15 to 20 minutes. Boiling is effective at removing chlorine because the solubility of gases in liquids decreases with increasing temperature, and chlorine is a gas at room temperature. Thus, as the water is heated up, it cannot hold as much free chlorine in the water, and so the free chlorine is released in the form of chlorine gas.
 
 \begin{figure}[H]
 	\centering
 	\caption{Solubility curve for chlorine: the hotter the water is, the less dissolved chlorine the water can hold.}
-	\includegraphics{assets/cl-solubility.png}
+	\includegraphics[width=0.5\linewidth]{assets/cl-solubility.png}
 \end{figure}
 
-In this experiment, I attempt to determine the effectiveness of this approach by comparing the amounts of chlorine in tap water that has been boiled for different lengths of time. Through analyzing the data, I hope to find the optimal amount of time the water should be boiled for in order to remove a significant amount of chlorine.
+In addition, in this experiment, the approach of boiling to remove chlorine from water will be compared to water deionizers, which are an alternative and established method of filtering out chlorine. This experiment will attempt to find the amount of time needed to boil water to remove a similar amount of chlorine as a water deionizer.
+
+The water deionizers used in this experiment contain plastic beads in two separate resins. One resin contains beads which are positively pre-charged with hydrogen ions (\ce{H^+}), and the other resin contains beads which are negatively pre-charged with hydroxide ions (\ce{OH^-}). Water contaminated with minerals is passed through both resins in the water deionizer, which exchanges charged particles in the water with either hydrogen ions or hydroxide ions. In particular, the negatively charged ions should filter out chlorine, an anion, in exchange for hydroxide ions. In the end, the hydrogen ions and hydroxide ions combine to form pure water \ce{H2O}.
+
+% TODO: https://complete-water.com/resources/what-is-deionized-water
+
+% TODO: Add more theory
+\newpage
 
 \section{Methodology}
 
-To determine the amount of chlorine in a sample of tap water, Mohr's method will be used, which determines the chloride ion concentration in a solution by titrating it with silver nitrate. As silver nitrate is added to the solution, the chloride ions bond with the silver ions to create silver chloride:
+To determine the amount of chlorine in a sample of tap water, Mohr's method will be used, which determines the chloride ion concentration in a solution by titrating it with silver nitrate (\ce{AgNO3}) and adding potassium chromate (\ce{K2CrO4}) as an indicator.
+
+Initially, the solution consists of the water sample and a few drops of the potassium chromate indicator, which turns the solution light yellow:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.25\linewidth]{assets/initial.png}
+	\caption{Before any silver nitrate solution is added, the colour of the solution is a bright and transparent yellow.}
+\end{figure}
+
+As silver nitrate is added to the solution with an unknown concentration of chloride ions, the chloride ions bond with the silver ions to form silver chloride:
 
 \centerline{\ce{Ag^{+}_{(aq)} + Cl^{-}_{(aq)} -> AgCl_{(s)}}}
+
+Since silver chloride is insoluable in water, it produces a white precipitate that can be seen during the titration:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.25\linewidth]{assets/white-precipitate.png}
+	\caption{The silver chloride is identified as an unsoluable white precipiate.}
+\end{figure}
+
+The titration is complete when the silver ions have reacted with all the chlorine ions in the solution, leaving excess silver ions in the solution. The excess silver ions then react with chromate ions from the potassium chromate indicator to form silver chromate (\ce{Ag2CrO4_{(s)}}):
+
+\centerline{\ce{2Ag^{+}_{(aq)} + CrO4^{2-}_{(aq)} -> Ag2CrO4_{(s)}}}
+
+Silver chromate is a red-brown precipate, and it can be easily identified in the solution as the silver chromate turns the solution from white to a red-brown colour:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\linewidth]{assets/color-difference}
+	\caption{TODO}
+\end{figure}
+
+When the above red-brown colour appears in the solution, it indicates that all the chloride ions have reacted with the silver nitrate and that the titration endpoint has been reached. The amount of titrant (the silver nitrate solution) added is then noted down, and this amount can be used to determine the amount of chloride ions in the water sample.
 
 \subsection{Variables}
 
@@ -370,26 +415,39 @@ Plotting these values on a graph yields the following result:
 \begin{figure}[H]
 	\centering
 	\caption{The concentration of chlorine remaining plotted against boiling time.}
-	\includegraphics{assets/concentration-vs-boiling-time.png}
+	\includegraphics[width=\linewidth]{assets/concentration-vs-boiling-time.png}
 \end{figure}
 
 \section{Analysis}
 
-Based on the graph, the relationship between the amount of time the water was boiled for and the remaining chlorine in the water is quadratic. The equation of the trendline is as follows:
+\subsection{The Correlation}
+
+The equation of the trendline can be written as follows, where $t$ represents the time the water has been boiled (in \si{\minute}) and $y$ represents the concentration of chloride in the water (in \si{\mmol}):
 %
 \begin{align*}
 	y = 0.00002t^2 - 0.001t + 0.0013
 \end{align*}
 
-Where $y$ refers to the amount of chlorine remaining in the water sample (in \si{\mmol}) and where $t$ refers to the time the water has been boiled for (in \si{\minute}).
+This equation indicates that there is a positive and quadratic relationship between boiling time and chlorine concentration. This relationship does not agree with the theory presented earler, where it was hypothesized that the chlorine concentration in the water should \textit{decrease} as the water was boiled for longer. Instead, the graph indicates that the chlorine concentration \textit{increases} as the water was boiled for longer.
 
-This graph does not agree with the hypothesis presented earlier, where it was predicted that the amount of chlorine remaining in the water should \textit{decrease} as the water was boiled for longer.
+\subsection{Explaining the Results}
 
-After further investigation, it appears that Toronto adds ammonia during their water treatment system. This reacts with the chlorine in the water to produce chloramine (\ce{NH2Cl}). Compared to chlorine, chloramine is more stable because of the bond between chlorine and ammonia. While this stability allows it to remain in the water supply for a longer period of time, it also makes boiling water an ineffective method at removing chloramine.
+During the research phase, two common methods of water disinfection were mentioned: disinfection with chlorine and disinfection with chloramine (\ce{NH2Cl}). The experiment was performed under the belief that Toronto used only chlorine instead of chloramine for water treatment.
 
-This explanation is further supported by the effectiveness of the deionizer used in trials 1 to 3, which is represented by the red line in the graph. Unlike boiling, deionization is more effective at removing chloramine.
+However, after further investigation, it appears that there was a misunderstanding from one of the official sources. Contrary to initial beliefs, it was discovered that Toronto adds ammonia during their water treatment system as a secondary disinfectant (<?# todo: link source ?>). When ammonia is added to water with chlorine, the ammonia bonds to chlorine to produce chloramine (\ce{NH2Cl}). Compared to chlorine, chloramine is more stable because of the bond between chlorine and ammonia. This stability allows chloramine to remain in the water supply for a longer period of time to ensure that the water remains disinfected for longer. However, the extra stability of chloramine also makes boiling water an ineffective way to remove the excess chlorine in water (while it is possible to remove chloramine by boiling, it takes much longer than 20 minutes to remove an significant amount of chloramine).
 
-Thus, since boiling doesn't effectively remove chloramine, by boiling the water, the chloramine is still left in the water, making the water more concentrated with chlorine.
+Thus, based on the results presented in Figure 5 and the additional sources from further investigation, the water used in the experiment was likely treated with chloramine. This conclusion is further supported by the effectiveness of the deionizer used in trials 1 to 3, which removed significantly more chlorine than boiling water. Unlike boiling, the water deionizater is still effective at removing chloramine: the chloramine dissolves into positively charged ammonia ions and negatively changed chlorine ions in water, which are filtered out by the positive and negative resins in the water deionizer, respectively.
+
+The increase in concentration in the graph can be attributed to the decrease in volume as water as the water was boiled for longer, while the amount of chloramine remained relatively the same. Since concentration is inversely proportional to the volume, when the volume decreases and the number of moles of chloramine are held constant, the concentration of chloramine increases.
+
+<?# todo add equation ?>
+
+The quadratic relationship is likely explained by the rate of evaporation as the water is boiled. Since the only variable changing is the volume of water, it indicates that the volume of water is decreasing at a quadratic rate, which makes sense because as the volume of water decreases, more of the heat is dispersed across a lower amount of
+
+\begin{align*}
+Q = mc \delta T
+
+\end{align*}
 
 Thus, by boiling the water, it likely increased the concentration of chloramine and thus the chlorine concentration of the water, explaining the positive correlation between the time boiled and the amount of chlorine in the water.
 
@@ -440,3 +498,5 @@ Thus, since boiling water is not as effective in removing chloramine, my family 
 % TODO: **specific** improvements (e.g. a specific instrument)
 
 % TODO: add theory, what would you do if you could increase the scope of the experiment
+
+% TODO: add weakness of Mohr's method that there must be excess and no benzene or whatever
