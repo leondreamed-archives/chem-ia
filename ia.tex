@@ -71,7 +71,7 @@ Water deionizers remove chlorine through ion-exchange resins. One resin contains
 % TODO: in-text https://complete-water.com/resources/what-is-deionized-water
 
 \subsection{Hypothesis}
-The time spent boiling tap water is inversely proportional to the remaining concentration of dissolved chlorine.
+The time spent boiling tap water is inversely proportional to the remaining concentration of dissolved chlorine. In addition, I hypothesize that the water deionizer will be more effective at removing chlorine than boiling, even after 20 minutes.
 
 \newpage
 
@@ -439,7 +439,7 @@ The equation of the trendline can be written as follows, where $t$ represents th
 
 This equation indicates that there is a positive and quadratic relationship between boiling time and chlorine concentration. This relationship does not agree with the theory presented earler, where it was established that the chlorine concentration in the water should \textit{decrease} as the water was boiled for longer. Instead, the graph indicates that the chlorine concentration \textit{increases} as the water was boiled for longer.
 
-\subsection{Explaining the Results}
+\subsection{Interpreting the Results}
 
 During the research phase, two common methods of water disinfection were mentioned: disinfection with chlorine and disinfection with chloramine (\ce{NH2Cl}). The experiment was performed under the belief that Toronto used only chlorine instead of chloramine for water treatment.
 
@@ -466,23 +466,19 @@ The accuracy of the titration can be determined by comparing the experimental re
 	\\
 	M_{\ce{Cl^-}} & = 35.45\gpm
 	\\
-	m_{\ce{Cl^-}} & = <?= sf(trial1Calculations.molesOfChlorine, 3) ?> \pm 8.8\% \mmol \times 35.45\gpm
+	m_{\ce{Cl^-}} & = (<?= sf(trial1Calculations.molesOfChlorine, 3) ?> \pm 8.8\% \mmol) \times 35.45\gpm
 	\\
 	<? trial1Calculations.massOfChlorine = trial1Calculations.molesOfSilverNitrate * 35.45 -?>
 	m_{\ce{Cl^-}} & = <?= sf(trial1Calculations.massOfChlorine, 3) ?>\mg
-\end{align*}
-
-Converting this amount to \si{\mg\per\litre} gives us the following amount:
-%
-\begin{align*}
-	c = <?= sf(trial1Calculations.massOfChlorine, 3) ?>\mg/10\ml
 	\\
-	c = <?= sf(trial1Calculations.massOfChlorine * 100, 3) ?>\mg/\litre
+	c & = <?= sf(trial1Calculations.massOfChlorine, 3) ?>\mg/10\ml
+	\\
+	c & = <?= sf(trial1Calculations.massOfChlorine * 100, 3) ?>\mg/\litre
 \end{align*}
 
-This result is off by an order of magnitude: the experimental results indicate that there is over 10 times the amount of chlorine that is expected from Toronto's tap water. It is very unlikely that this discrepancy
+Surprisingly, compared to the expected value of 1 to \SI{3}{\mg\per\litre}, this result is off by an order of magnitude. The experimental results indicate that there is over 10 times the amount of chlorine that is expected from Toronto's tap water. It is very unlikely that this result represents the actual concentration of Toronto's tap water but rather represents potential sources of error in the titration procedure.
 
-\subsection{Potential Sources of Discrepancy}
+\subsection{Potential Sources of Error}
 
 The discrepancy between the experimental data and the expected data may be attributed to the dilute solutions of silver nitrate and potassium chromate used in the experiment. Due to availability limitations, the concentration of potassium chromate needed to be scaled down to 0.01\mpl compared to the recommend amount of 0.25\mpl to perform Mohr's titration. In addition, the concentration of silver nitrate solution needed to be scaled down to 0.01\mpl as well in order to gain more precision since the amount of tap water in chlorine is very trace. Thus, it is likely that the initial visual colour change was too faint to notice, and an excess of silver nitrate was needed in order to produce a visible colour change that indicated the titration's endpoint. However, this discrepancy would represent a systematic error in the experiment, and thus does not invalidate the positive correlation between the boiling time and the remaining chlorine concentration in water. % TODO: explain better
 
@@ -490,15 +486,13 @@ The discrepancy between the experimental data and the expected data may be attri
 
 \section{Conclusion}
 
-While the results from this experiment may not have been accurate when compared to the expected amount of chlorine in Toronto's tap water, the data still displayed an evident trend between the amount of chlorine in water and the boiling time of water.
+The original purpose of the experiment was to find the relationship between time spent boiling tap water and the remaining concentration of dissolved chlorine assuming the chlorine was present as dissolved chlorine gas. Instead, the data collected from the experiment strongly suggested that the chlorine used to disinfect Toronto's drinking water is not just chlorine gas, but instead dissolved chloramine. However, despite this misunderstanding, the experiment still displayed an evident trend that proved fruitful for analysis. While the data cannot make any conclusions about the effectiveness of boiling water with dissolved chlorine gas, it does conclude that boiling water is not an effective means of removing chloramines from water. Thus, instead of boiling water, my family should consider investing in more efficient methods of water purification which remove chloramine more effectively, such as a carbon block filter or a reverse osmosis filter.
 
-Despite the inaccuracy between the experimental value and the actual value, the strong positive correlation between boiling time and chlorine concentration strongly suggests that the city of Toronto uses chloramine to disinfect their water.
-
-Thus, having learned that Toronto uses chloramine, my family should consider investing in a water filter or a reverse osmosis filter to remove the excess chlorine in water, which are more effective and efficient at removing chloramine than boiling.
+Despite the inaccuracy between the experimental value and expected value of chlorine concentration in unboiled tap water, the strong positive correlation between boiling time and chlorine concentration strongly suggests that the city of Toronto uses chloramine to disinfect their water.
 
 \subsection{Future Improvements}
 
-
+In order to reduce the loss of accuracy when identifying the titration endpoint, a more concentrated solution of potassium chromate should be used. In addition,
 
 Since I didn't have access to a brand new carbon-based water filter or a reverse osmosis filter for this experiment, it would be interesting to compare their effectiveness at removing chloramine from water.
 
