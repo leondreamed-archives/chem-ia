@@ -65,16 +65,12 @@ The free chlorine in tap water is what causes it to sometimes have an unpleasant
 	\includegraphics[width=0.5\linewidth]{assets/cl-solubility.png}
 \end{figure}
 
-In addition, I hope to compare the effectiveness of boiling water with another method of removing chlorine from water: water deionizers.
+In addition to investigating the relationship between boiling water and the remaining chlorine concentration, I hope to compare the effectiveness of boiling water with another method of removing chlorine from water: water deionizers.
 
-Water deionizers remove chlorine through ion-exchange resins. One resin contains beats contains beads which are positively pre-charged with hydrogen ions (\ce{H^+}), and the other resin contains beads which are negatively pre-charged with hydroxide ions (\ce{OH^-}). Water contaminated with minerals is passed through both resins in the water deionizer. The positively changed resin exchanges its hydrogen ions with cations present in the water, and the negatively changed resin exchanges its hydroxide ions with anions present in the water, such as chloride ions. In the end, the hydrogen ions and hydroxide ions combine to form pure water \ce{H2O}.
-
-% TODO: in-text https://complete-water.com/resources/what-is-deionized-water
+Water deionizers remove chlorine through ion-exchange resins. One resin contains beats contains beads which are positively pre-charged with hydrogen ions (\ce{H^+}), and the other resin contains beads which are negatively pre-charged with hydroxide ions (\ce{OH^-}). Water contaminated with minerals is passed through both resins in the water deionizer. The positively changed resin exchanges its hydrogen ions with cations present in the water, and the negatively changed resin exchanges its hydroxide ions with anions present in the water, such as chloride ions. In the end, the hydrogen ions and hydroxide ions combine to form pure water \ce{H2O} (Olszak 2020).
 
 \subsection{Hypothesis}
-The time spent boiling tap water is inversely proportional to the remaining concentration of dissolved chlorine. In addition, I hypothesize that the water deionizer will be more effective at removing chlorine than boiling, even after 20 minutes.
-
-\newpage
+The time spent boiling tap water is inversely proportional to the remaining concentration of dissolved chlorine. In addition, I hypothesize that the water deionizer will initially be more effective at removing chlorine than boiling when the water is boiled for less than 15 minutes. But, when the water is boiled for around 15-20 minutes, I hypothesize the concentration of chlorine from the water deionizer will be similar to that of the water.
 
 \section{Methodology}
 
@@ -92,15 +88,15 @@ As silver nitrate is added to the solution with an unknown concentration of chlo
 
 \centerline{\ce{Ag^{+}_{(aq)} + Cl^{-}_{(aq)} -> AgCl_{(s)}}}
 
-Since silver chloride is insoluable in water, it produces a white precipitate that can be seen during the titration:
+Since silver chloride is insoluable in water, it produces a white precipitate that can be seen after the titration starts but before the endpoint is reached:
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.25\linewidth]{assets/white-precipitate.png}
-	\caption{The silver chloride is identified as an unsoluable white precipiate.}
+	\caption{The silver chloride is visible as an unsoluable white precipiate.}
 \end{figure}
 
-The titration is complete when the silver ions have reacted with all the chlorine ions in the solution, leaving excess silver ions in the solution. The excess silver ions then react with chromate ions from the potassium chromate indicator to form silver chromate (\ce{Ag2CrO4_{(s)}}):
+The titration is complete when the silver ions have reacted with all the chlorine ions in the solution. When more silver ions are added, the excess silver ions will react with the chromate ions from the potassium chromate indicator to form silver chromate (\ce{Ag2CrO4_{(s)}}):
 
 \centerline{\ce{2Ag^{+}_{(aq)} + CrO4^{2-}_{(aq)} -> Ag2CrO4_{(s)}}}
 
@@ -109,18 +105,20 @@ Silver chromate is a red-brown precipate, and it can be easily identified in the
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.3\linewidth]{assets/color-difference}
-	\caption{The color difference between the starting point (left image) of the titration and the endpoint of the titration (right image).}
+	\caption{The color difference between the starting point of the titration (left image) and the endpoint of the titration (right image).}
 \end{figure}
 
-When the above red-brown colour appears in the solution, it indicates that all the chloride ions have reacted with the silver nitrate and that the titration endpoint has been reached. The amount of titrant (the silver nitrate solution) added is then noted down, and this amount can be used to determine the amount of chloride ions in the water sample.
+The titration stops when the red-brown colour appears in the solution, indicating that all the chloride ions have reacted and that the endpoint has been reached. The amount of the silver nitrate solution titrant added to the water sample is then noted down. This amount can be used to determine the amount of chloride ions in the water sample.
 
-One potential weakness with Mohr's method is that it is ineffective at determine the chlorine concentration of a sample with other halides, such as iodide or bromide. However, in our situation, tap water % TODO: update
+One potential weakness with Mohr's method is that it is ineffective at determine the chlorine concentration of a water sample with other halides, such as iodide or bromide. However, Toronto's tap water is regulated to contain a maximum of \SI{0.01}{\milli\gram\per\litre} of bromate in drinking water (Health Canada, 2015), which is 100 times less than the amount of chlorine in tap water. Thus, the bromide concentration is negligible and will not significantly affect the results from using Mohr's Method to titrate tap water.
 
 \subsection{Variables}
 
 \textbf{Independent Variable:} Amount of time tap water is boiled
 
-\textbf{Dependent Variable:} Remaining chlorine concentration in water
+\smallskip
+
+\noindent\textbf{Dependent Variable:} Remaining chlorine concentration in water
 
 \begin{table}[H]
 	\def\arraystretch{1.5}
@@ -141,19 +139,20 @@ One potential weakness with Mohr's method is that it is ineffective at determine
 		\\\hline
 		Temperature of hot plate
 		 & Different temperatures of the hot plate would boil water at different speeds.
-		 & The hot plate was kept at the same power level, left on for 15 minutes to reach full power, and then the water samples were boiled sequentially.
+		 & The hot plate was initially left on for 15 minutes to reach full power. Then, the water samples were boiled sequentially with the hot plate continuously on at full temperature for each of the samples.
+		\\\hline
+		Concentration and amount of potassium chromate solution added for each trial
+		 & Different volumes of potassium chromate might impact the visibility of the titration endpoint (since a greater volume of water makes the endpoint colour more diluted and less evident).
+		 & To keep the endpoint consistent and limit the possible error of identifying the endpoint to systematic error, the same amount of potassium chromate solution (1\ml of 0.01\mpl \ce{K2CrO4}) was added to each water sample.
+		\\\hline
+		Amount of water added to each sample
+		 & The visibility of the endpoint is affected by the amount of water (more water makes the red-brown colour at the titration endpoint more diluted and less visible).
+		 & 10\ml of the tap water sample was used for each trial.
 		\\\hline
 	\end{tabularx}
 \end{table}
 
 \subsection{Apparatus}
-
-<?#
-I ended up using 2 mL total of 1 mol/L K2CrO4
-This produces 0.01M
-
-I remember using 0.01M of AgNO3 as well
-?>
 
 \begin{itemize}
 	\item 250\ml Erlenmeyer Flask
@@ -178,8 +177,6 @@ I remember using 0.01M of AgNO3 as well
 \end{itemize}
 
 \subsection{Preparation}
-
-ou
 
 % TODO: describe initial attempts to create concentrations and how it failed because it was too dilute
 
@@ -238,7 +235,7 @@ const rawData = [
 	[9, 16.2 - 14.3, 10],
 	[9, 10.15 - 8.65, 10],
 	[20, 26.4 - 20.15, 10],
-	[20, 29.4 - 26.4, 5],
+	[20, 29.4 - 23.4, 10],
 ];
 
 const headers = ['minutesBoiled', 'titrantAmount', 'amountOfWater'];
@@ -248,7 +245,7 @@ const data = rawData.map(row => Object.fromEntries(R.zip(headers, row)));
 % \end{noindent}
 
 \begin{table}[H]
-	\caption{Data collected during the experiment over 16 trials. Note that the amount of water used for Trial 16 is only 5\ml because }
+	\caption{Data collected during the experiment over 16 trials. The amount of water used for each trial was 10\ml $\pm$ 0.05\ml .}
 	\def\arraystretch{1.5}
 	\begin{tabularx}{\linewidth}{|
 			>{\RaggedRight}X|
@@ -259,15 +256,13 @@ const data = rawData.map(row => Object.fromEntries(R.zip(headers, row)));
 		\hline
 		\textbf{Trial Number}                &
 		\textbf{Time Boiled} /\si{\minute}   &
-		\textbf{Titrant Amount} /$\pm$0.1\ml &
-		\textbf{Amount of Water} /$\pm$0.05\ml
+		\textbf{Titrant Amount} /$\pm$0.1\ml
 		\\\hline
 		% \begin{noindent}
 		<? for (const [rowIndex, row] of data.entries()) { ?>
 			Trial <?= rowIndex + 1 ?>
 			& <?= row.minutesBoiled ?>
 			& <?= row.titrantAmount.toFixed(2) ?>
-			& <?= row.amountOfWater ?>
 			\\\hline
 		<? } ?>
 		% \end{noindent}
@@ -410,6 +405,7 @@ function roundToUncertaintyDecimalPlaces(value: number, uncertaintyPercentage: n
 					?>
 				}{*}{<?= roundToUncertaintyDecimalPlaces(averageMolesOfChlorine, uncertaintyPercentageOfAverage) ?>}
 				\\\cline{1-2}
+				<? console.log(row, averageMolesOfChlorine) ?>
 			<? } else if (row.minutesBoiled !== data[rowIndex + 1]?.minutesBoiled) { ?>
 				\\\hline
 			<? } else { ?>
@@ -474,9 +470,9 @@ The accuracy of the titration can be determined by comparing the experimental re
 	<? trial1Calculations.massOfChlorine = trial1Calculations.molesOfSilverNitrate * 35.45 -?>
 	m_{\ce{Cl^-}} & = <?= sf(trial1Calculations.massOfChlorine, 3) ?>\mg
 	\\
-	c & = <?= sf(trial1Calculations.massOfChlorine, 3) ?>\mg/10\ml
+	c             & = <?= sf(trial1Calculations.massOfChlorine, 3) ?>\mg/10\ml
 	\\
-	c & = <?= sf(trial1Calculations.massOfChlorine * 100, 3) ?>\mg/\litre
+	c             & = <?= sf(trial1Calculations.massOfChlorine * 100, 3) ?>\mg/\litre
 \end{align*}
 
 Surprisingly, compared to the expected value of 1 to \SI{3}{\mg\per\litre}, this result is off by an order of magnitude. The experimental results indicate that there is over 10 times the amount of chlorine that is expected from Toronto's tap water. It is very unlikely that this result represents the actual concentration of Toronto's tap water but rather represents potential sources of error in the titration procedure.
