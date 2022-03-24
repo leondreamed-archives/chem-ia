@@ -262,7 +262,7 @@ const data = rawData.map(row => Object.fromEntries(R.zip(headers, row)));
 
 \begin{table}[H]
 	\caption{Data collected during the experiment over 16 trials. The amount of water titrated for each trial was 10\ml $\pm$ 0.05\ml .}
-	\def\arraystretch{1.2}
+	\def\arraystretch{1.5}
 	\begin{tabularx}{\linewidth}{|
 			>{\RaggedRight}X|
 			>{\RaggedRight}X|
@@ -343,7 +343,7 @@ From here, the concentration of chloride ions in the water can be determined kno
 	c & = <?= sf(trial1Calculations.molesOfChlorine / 10, 3) ?>\mpl \pm 9\%
 \end{align*}
 
-The above calculations were performed for each of the values in the 16 trials, producing the following values:
+The above calculations were performed for each of the values in the 16 trials, producing the following table of values:
 
 % \begin{noindent}
 <?
@@ -439,7 +439,7 @@ Plotting these values on a graph yields the following result:
 \begin{figure}[H]
 	\centering
 	\caption{The concentration of chlorine remaining plotted against boiling time. The orange line represents the average chlorine concentration in the trials that used deionized water.}
-	\includegraphics[width=\linewidth]{assets/concentration-vs-boiling-time.png}
+	\includegraphics[width=1\linewidth]{assets/concentration-vs-boiling-time.png}
 \end{figure}
 
 \section{Analysis}
@@ -460,7 +460,7 @@ The hypothesis was made under the belief that Toronto used only chlorine for wat
 
 This detail is significant because when ammonia is added to chlorine, it forms chloramine (\ce{NH2Cl}), which is more stable compared to dissolved chlorine because of the bond between chlorine and ammonia. This stability allows chloramine to remain in the water supply for a longer period of time to ensure that the water remains disinfected for longer. However, the extra stability of chloramine also makes boiling water an ineffective way to remove chloramine from water. Unlike chlorine, it can take hours to boil off an appreciable amount of chloramine from tap water (Byrd 2022).
 
-Thus, the positive correlation depicted in the data between the time spent boiling water and the chlorine concentration in the water strongly suggests that the tap water used in the experiment was treated with chloramine. This conclusion is further supported by the effectiveness of the deionizer used in trials 1 to 3—the concentration of chlorine in the deionized water was significantly lower than the concentration of chlorine in unboiled tap water. Unlike boiling, the water deionizer is effective at removing chloramine, which is dissolved in water as positively charged ammonia ions and negatively charged chloride ions. The positively charged resin in the water deionizer filters out the ammonia ions, and the negatively charged resin in the water deionizer filters out chloride ions. Thus, the water deionizer is still able to produce water which is relatively free of dissolved chlorine even when the water contains chloramine.
+Thus, the positive correlation depicted in the data between the time spent boiling water and the chlorine concentration in the water strongly suggests that the tap water used in the experiment was treated with chloramine. This conclusion is further supported by the effectiveness of the deionizer used in trials 1 to 3—the concentration of chlorine in the deionized water was significantly lower than the concentration of chlorine in unboiled tap water. Unlike boiling, the water deionizer is effective at removing dissolved chloramine—the positively charged resin filters out the ammonia ions, and the negatively charged resin in the water deionizer filters out the chloride ions. Thus, the water deionizer is still able to produce water which is relatively free of dissolved chlorine even when the water contains chloramine.
 
 The positive correlation between the time spent boiling water and the concentration of dissolved chlorine can be attributed to the decrease in the volume of water. Since boiling water for 20 minutes or less does not release a substantial amount of chloramine, the amount of chloramine is around the same in the water samples in each 100\ml beaker after boiling. However, as the water is boiled for longer, the volume of water decreases as more water evaporates from the beaker. Since the concentration is inversely proportional to the volume of the solution, as the volume of water decreases and the amount of chloramine is held constant, the concentration of chloramine in the water increases. This explains why the chlorine concentration seems to increase as the water is boiled for longer.
 
@@ -468,14 +468,14 @@ The quadratic nature of the relationship is likely explained by the increasing r
 
 \subsection{Comparison with Expected Value}
 
-The accuracy of the titration can be determined by comparing the experimental results of the chlorine concentration in unaltered tap water with the expected chlorine concentration in tap water regulated by the city of Toronto (between 1\mg/\litre and 3\mg/litre). In order to compare the experimental data with this value, the concentration of chlorine in \si{\mpl} must be converted to \si{\mg\per\litre}:
+The accuracy of the titration can be determined by comparing the experimental results of the chlorine concentration in unaltered tap water with the expected chlorine concentration in tap water regulated by the city of Toronto (between 1\mg/\litre and 3\mg/\litre):
 %
 \begin{align*}
 	m_{\ce{Cl^-}} & = n_{\ce{Cl^-}} \times M_{\ce{Cl^-}}
 	\\
 	M_{\ce{Cl^-}} & = 35.45\gpm
 	\\
-	m_{\ce{Cl^-}} & = (<?= sf(trial1Calculations.molesOfChlorine, 3) ?> \pm 8.8\% \mmol) \times 35.45\gpm
+	m_{\ce{Cl^-}} & = (<?= sf(trial1Calculations.molesOfChlorine, 3) ?> \mmol \pm 8.8\% ) \times 35.45\gpm
 	\\
 	<? trial1Calculations.massOfChlorine = trial1Calculations.molesOfSilverNitrate * 35.45 -?>
 	m_{\ce{Cl^-}} & = <?= sf(trial1Calculations.massOfChlorine, 3) ?>\mg
@@ -485,25 +485,23 @@ The accuracy of the titration can be determined by comparing the experimental re
 	c             & = <?= sf(trial1Calculations.massOfChlorine * 100, 3) ?>\mg/\litre
 \end{align*}
 
-Surprisingly, compared to the expected value of 1 to \SI{3}{\mg\per\litre}, this result is off by an order of magnitude. The experimental results indicate that there is over 10 times the amount of chlorine that is expected from Toronto's tap water. It is very unlikely that this result represents the actual concentration of Toronto's tap water but rather represents potential sources of error in the titration procedure.
+Surprisingly, compared to the expected value of 1 to \SI{3}{\mg\per\litre}, this result is off by an order of magnitude. The experimental results indicate that there is over 10 times the amount of chlorine that is expected from Toronto's tap water. It is very unlikely that this result represents the actual chlorine concentration of Toronto's tap water but rather represents potential major sources of error in the experimental procedure.
 
 \subsection{Potential Sources of Error}
 
-The discrepancy between the experimental data and the expected data may be attributed to the dilute solutions of silver nitrate and potassium chromate used in the experiment. Due to availability limitations, the concentration of potassium chromate needed to be scaled down to 0.01\mpl compared to the recommend amount of 0.25\mpl to perform Mohr's titration. In addition, the concentration of silver nitrate solution needed to be scaled down to 0.01\mpl as well in order to gain more precision since the amount of tap water in chlorine is very trace. Thus, it is likely that the initial visual colour change was too faint to notice, and an excess of silver nitrate was needed in order to produce a visible colour change that indicated the titration's endpoint. However, this discrepancy would represent a systematic error in the experiment, and thus does not invalidate the positive correlation between the boiling time and the remaining chlorine concentration in water.
+The discrepancy between the experimental data and the expected data may be attributed to the dilute solutions of silver nitrate and potassium chromate used in the experiment. Due to availability limitations, the concentration of potassium chromate needed to be scaled down to 0.01\mpl compared to the recommend amount of 0.25\mpl to perform Mohr's titration. In addition, the concentration of silver nitrate solution needed to be scaled down to 0.01\mpl in order to gain more precision since the amount of chlorine in tap water is very trace. Thus, it is likely that the initial colour change that marked the exact endpoint was too faint to visually notice, and a large excess of silver nitrate was needed in order to produce a visible colour change that indicated the titration's endpoint. However, this discrepancy would represent a systematic error in the experiment, and thus does not invalidate the positive correlation between the boiling time and the remaining chlorine concentration in water determined during analysis.
 
 \section{Conclusion}
 
-The original purpose of the experiment was to find the relationship between time spent boiling tap water and the remaining concentration of dissolved chlorine assuming the chlorine was present as dissolved chlorine gas. Instead, the data collected from the experiment strongly suggested that the chlorine used to disinfect Toronto's drinking water is not just chlorine gas, but instead dissolved chloramine. However, despite this misunderstanding, the experiment still displayed an evident trend that proved fruitful for analysis. While the data cannot make any conclusions about the effectiveness of boiling water with dissolved chlorine gas, it does conclude that boiling water is not an effective means of removing chloramines from water. Thus, instead of boiling water, my family should consider investing in more efficient methods of water purification which remove chloramine more effectively, such as a carbon block filter or a reverse osmosis filter.
-
-Despite the inaccuracy between the experimental value and expected value of chlorine concentration in unboiled tap water, the strong positive correlation between boiling time and chlorine concentration strongly suggests that the city of Toronto uses chloramine to disinfect their water.
+The original purpose of the experiment was to find the relationship between time spent boiling tap water and the remaining concentration of dissolved chlorine assuming the chlorine was present as dissolved chlorine gas. Instead, the data collected from the experiment strongly suggested that the chlorine used to disinfect Toronto's drinking water is not just chlorine gas, but instead dissolved chloramine. However, despite this misunderstanding, the experiment still displayed an evident trend that proved fruitful for analysis. While the data cannot make any conclusions about the effectiveness of boiling water with dissolved chlorine gas, it does conclude that boiling water is not an effective means of removing chloramine from water. Thus, instead of boiling water, my family should consider investing in alternative methods of water purification which remove chloramine more effectively, such as a carbon block filter or a reverse osmosis filter.
 
 \subsection{Future Improvements}
 
-In order to reduce the loss of accuracy when identifying the titration endpoint, a more concentrated solution of potassium chromate should be used. In addition,
+In order to reduce the loss of accuracy when identifying the titration endpoint, a more concentrated solution of potassium chromate should be used. However, due to the low amounts of chlorine in tap water, increasing the concentration of the silver nitrate solution would make measuring the chlorine concentration much less precise. Instead, more precise titration equipment should be considered that would allow using a more concentrated silver nitration solution to produce a more visible colour change while still enabling the chlorine concentration to be measured with high precision.
 
-Since I did not have access to a brand new carbon-based water filter or a reverse osmosis filter for this experiment, it would be interesting to compare their effectiveness at removing chloramine from water.
+In addition, it would be interesting to compare alternative methods of water purification such as a brand new carbon-based water filter or a reverse osmosis filter (which I unfortunately did not have access to for this experiment).
 
-In addition, it would be interesting to further explore the relationship between the time spent boiling water and the ratio between the remaining amount of chloramine to the remaining amount of water. Unfortunately, this was not possible to analyze from this experiment because the final volume after boiling each beaker of water was not recorded due to the expectation that it would not be relevant to the experiment.
+Finally, it would be interesting to further explore the relationship between the time spent boiling water and the ratio between the remaining amount of chloramine to the remaining volume of water. Unfortunately, this was not possible to analyze from this experiment because the final volume after boiling each beaker of water was not recorded due to the expectation that it would not be relevant to the experiment.
 
 \newpage
 
